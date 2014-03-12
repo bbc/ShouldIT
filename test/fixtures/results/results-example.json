@@ -1,0 +1,28 @@
+{
+    "open description": {
+        "should do something": "test/fixtures/spec/closedDescribeNewline.feature:4"
+    },
+    "a description": {
+        "another description": {
+            "should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"
+        }
+    },
+    "should do something": "test/fixtures/spec/exampleSpecLc.feature:1",
+    "first description": {
+        "should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"
+    },
+    "second description": {
+        "nested description": {
+            "should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"
+        }
+    },
+    "spec 1": "test/fixtures/spec/multiIt.feature:1",
+    "spec 2": "test/fixtures/spec/multiIt.feature:2",
+    "should have a tab title of \"More Live\".": "test/fixtures/spec/realSpec.feature:24",
+    "should be the third tab after the tab labelled \"Data\"": "test/fixtures/spec/realSpec.feature:25",
+    "should only be displayed if the \"Live Page Cross Promo\" module is present.": "test/fixtures/spec/realSpec.feature:26",
+    "should only display the tab on resolutions less than 899px (tablet & mobile).": "test/fixtures/spec/realSpec.feature:27",
+    "phones": "test/fixtures/spec/realSpec.feature:16",
+    "should NOT display if the \"related_sessions\" flagpole is turned off.": "test/fixtures/spec/realSpec.feature:28",
+    "should NOT display the tab on fallback devices/browsers.": "test/fixtures/spec/realSpec.feature:29"
+}
