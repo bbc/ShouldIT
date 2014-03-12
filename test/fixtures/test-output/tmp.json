@@ -1,0 +1,5 @@
+{
+    "a description": {
+        "should do something": "test/fixtures/spec/describe.feature:2"
+    }
+}

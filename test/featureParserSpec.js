@@ -76,4 +76,12 @@ describe("Feature parsing", function(done) {
         });
     });
 
+    it("returns the line that the IT was found on", function(done) {
+        var inputFile = "test/fixtures/spec/exampleSpec.feature";
+        featureParser(inputFile, function(spec) {
+            assert.equal(spec.line, "test/fixtures/spec/exampleSpec.feature:1");
+            done();
+        });
+    })
+
 });
