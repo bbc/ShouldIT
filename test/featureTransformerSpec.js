@@ -26,6 +26,42 @@ describe("Tranformation", function() {
         
     });
 
+    it("transforms nested describes", function(done) {
+        var inputFile = "test/fixtures/spec/twoDescribes.feature";
+        var expectedOutput = {
+            "a description" : {
+                "another description" : {
+                    "should match 2 descriptions" : "test/fixtures/spec/twoDescribes.feature:3"
+                }
+                
+            }
+        }
+        verifyFileOutput(inputFile, expectedOutput, done);
+    });
+
+    it("ignores empty describes", function(done) {
+        var inputFile = "test/fixtures/spec/closedDescribe.feature";
+        var expectedOutput = {
+            "open description" : {
+                "should do something" : "test/fixtures/spec/closedDescribe.feature:4"
+            }
+        }
+        verifyFileOutput(inputFile, expectedOutput, done);
+    });
+
+    it("handles multiple describes", function(done) {
+        var inputFile = "test/fixtures/spec/full.feature";
+        var expectedOutput = {
+            "first description" : {
+                "should do something" : "test/fixtures/spec/full.feature:2"
+            },
+            "second description" : {
+                "should do something else" : "test/fixtures/spec/full.feature:5"
+            }
+        }
+        verifyFileOutput(inputFile, expectedOutput, done);
+    });
+
     function verifyFileOutput(inputFile, expectedOutput, done) {
         var tempOut =  "test/fixtures/test-output/tmp.json";
 

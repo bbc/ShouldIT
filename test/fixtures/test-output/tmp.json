@@ -1,5 +1,8 @@
 {
-    "a description": {
-        "should do something": "test/fixtures/spec/describe.feature:2"
+    "first description": {
+        "should do something": "test/fixtures/spec/full.feature:2"
+    },
+    "second description": {
+        "should do something else": "test/fixtures/spec/full.feature:5"
     }
 }
