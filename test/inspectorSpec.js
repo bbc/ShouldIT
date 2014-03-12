@@ -6,25 +6,32 @@
 
     describe("Inspector", function() {
         it("should tell when a match is found", function() {
-            var expected = {
-                "passed": [{
-                    "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
-                }],
-                "pending": []
-            }
+            var expected = responseObject();
+            expected.passed = [{
+                "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            }];
             objectsEqual(inspector(filesContent()), expected);
         });
 
         it("should tell when a match is not found", function() {
 
-            var expected = {
-                "passed": [],
-                "pending": [{
-                    "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
-                }]
-            },
+            var expected = responseObject();
+            expected.pending = [{
+                "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            }];
             files = filesContent();
             files[1]["describe something"] = {"should do something else" : "PASSED"};
+            objectsEqual(inspector(files), expected);
+        });
+
+        it("should tell when a match is found but has a failing test", function() {
+
+            var expected = responseObject();
+            expected.failed =[{
+                    "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            }];
+            files = filesContent();
+            files[1]["describe something"] = {"should do something" : "FAILED"};
             objectsEqual(inspector(files), expected);
         });
     });
@@ -35,6 +42,14 @@
         assert.equal(
             JSON.stringify(obj1), JSON.stringify(obj2)
         );
+    }
+
+    function responseObject() {
+        return {
+            passed: [],
+            failed: [],
+            pending: []
+        }
     }
 
     function filesContent() {
