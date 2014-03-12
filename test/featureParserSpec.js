@@ -64,4 +64,16 @@ describe("Feature parsing", function(done) {
         });
     });
 
+    it("sets the last line flag on the last line", function(done) {
+        var inputFile = "test/fixtures/spec/multiIt.feature";
+        var callcount = 0;
+        featureParser(inputFile, function(spec) {
+            callcount++;
+            assert.equal(spec.last, (callcount == 2));
+            if(callcount == 2) {
+                done();
+            }
+        });
+    });
+
 });
