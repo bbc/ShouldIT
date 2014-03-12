@@ -34,6 +34,14 @@
             files[1]["describe something"] = {"should do something" : "FAILED"};
             objectsEqual(inspector(files), expected);
         });
+
+        it("should tell when a nested match is found", function() {
+            var expected = responseObject();
+            expected.passed = [{
+                "describe something else should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            }];
+            objectsEqual(inspector(nestedFilesContent()), expected);
+        });
     });
 
     /* Local Methods */
@@ -61,6 +69,23 @@
         {
             "describe something" : {
                 "should do something" : "PASSED"
+            }
+        }];
+    }
+
+    function nestedFilesContent() {
+        return [{
+            "describe something" : {
+                "else": {
+                    "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
+                }
+            }
+        },
+        {
+            "describe something" : {
+                "else": {
+                    "should do something" : "PASSED"
+                }
             }
         }];
     }
