@@ -13,22 +13,9 @@ module.exports = function (grunt) {
         },
         directives: {}
       }
-    },
-
-    karma: {
-        unit: {
-            configFile: 'karma.conf.js',
-            autoWatch: true,
-            reporters: ['dots']
-        },
-        ci: {
-            configFile: 'karma.conf.js',
-            reporters: ['junit', 'dots'],
-            singleRun: true
-        }
-    },
+    }
   });
 
-  grunt.registerTask('default', ['jslint', 'karma:ci']);
+  grunt.registerTask('default', ['jslint']);
 
 }
