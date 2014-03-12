@@ -11,7 +11,7 @@ describe("Tranformation", function() {
         var expectedOutput = {
             "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
         
     });
 
@@ -22,7 +22,7 @@ describe("Tranformation", function() {
                 "should do something" : "test/fixtures/spec/describe.feature:2"
             }
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
         
     });
 
@@ -36,7 +36,7 @@ describe("Tranformation", function() {
                 
             }
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
     });
 
     it("ignores empty describes", function(done) {
@@ -46,7 +46,7 @@ describe("Tranformation", function() {
                 "should do something" : "test/fixtures/spec/closedDescribe.feature:4"
             }
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
     });
 
     it("handles multiple describes", function(done) {
@@ -61,7 +61,7 @@ describe("Tranformation", function() {
                 }
             }
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
     });
 
     it("can handle newlines as a delimiter", function(done) {
@@ -76,7 +76,7 @@ describe("Tranformation", function() {
                 }
             }
         }
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
     });
 
     it("can parse a real feature", function(done) {
@@ -90,19 +90,14 @@ describe("Tranformation", function() {
             'should NOT display the tab on fallback devices/browsers.' : "test/fixtures/spec/realSpec.feature:13"
         }
 
-        verifyFileOutput(inputFile, expectedOutput, done);
+        verifyOutput(inputFile, expectedOutput, done);
     });
 
-    function verifyFileOutput(inputFile, expectedOutput, done) {
-        var tempOut =  "test/fixtures/test-output/tmp.json";
+    function verifyOutput(inputFile, expectedOutput, done) {
 
-        featureTransformer(inputFile, tempOut, function() {
-            fs.readFile(tempOut, 'utf8', function (err, data) {
-                if (err) throw err;
-                assert.notEqual(data, "");
-                assert.like(JSON.parse(data), expectedOutput);
-                done();
-            });
+        featureTransformer(inputFile, function(data) {
+            assert.like(JSON.parse(data), expectedOutput);
+            done();
         });
     }
 });
