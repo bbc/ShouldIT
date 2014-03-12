@@ -56,7 +56,9 @@ describe("Tranformation", function() {
                 "should do something" : "test/fixtures/spec/full.feature:2"
             },
             "second description" : {
-                "should do something else" : "test/fixtures/spec/full.feature:5"
+                "nested description" : {
+                    "should do something else" : "test/fixtures/spec/full.feature:6"
+                }
             }
         }
         verifyFileOutput(inputFile, expectedOutput, done);
