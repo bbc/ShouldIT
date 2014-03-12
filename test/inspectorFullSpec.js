@@ -5,7 +5,7 @@
         fs = require("fs"),
         feature = JSON.parse(fs.readFileSync("test/fixtures/results/results-example.json",'utf8'));
 
-    describe("Inspector full", function() {
+    describe.only("Inspector full", function() {
         it("should match top level specs", function() {
              var expected = [
                 {"spec 1": "test/fixtures/spec/multiIt.feature:1"},
@@ -30,7 +30,44 @@
                 "first description": {
                     "should do something": "PASSED"
                 }
-            }
+            };
+            objectsEqual(inspector([feature, testResult]).passed, expected);
+        });
+
+
+        it("should match second level specs", function() {
+             var expected = [
+                {"a description another description should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"},
+                {"second description nested description should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"},
+            ];
+            testResult = {
+                "a description": {
+                    "another description": {
+                        "should match 2 descriptions": "PASSED"
+                    }
+                },
+                "second description": {
+                    "nested description": {
+                        "should do something else": "PASSED"
+                    }
+                }
+            };
+            objectsEqual(inspector([feature, testResult]).passed, expected);
+        });
+
+        it("should match nested and non nested specs", function() {
+             var expected = [
+                {"second description nested description should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"},
+                {"should only be displayed if the \"Live Page Cross Promo\" module is present.": "test/fixtures/spec/realSpec.feature:26"}
+            ];
+            testResult = {
+                "second description": {
+                    "nested description": {
+                        "should do something else": "PASSED"
+                    }
+                },
+                "should only be displayed if the \"Live Page Cross Promo\" module is present.": "PASSED",
+            };
             objectsEqual(inspector([feature, testResult]).passed, expected);
         });
     });
