@@ -26,9 +26,10 @@
   "devDependencies": {
     "grunt-cli": "~0.1.8",
     "grunt-contrib-watch": "~0.3.1",
-    "grunt-karma": "~0.4.4",
     "grunt-shell": "~0.2.2",
     "grunt-check-modules": "~0.2.0",
-    "grunt-jslint": "~1.0.0"
+    "grunt-jslint": "~1.0.0",
+    "mocha": "~1.17.1",
+    "chai": "~1.9.0"
   }
 }
