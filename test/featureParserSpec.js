@@ -18,8 +18,11 @@ describe("Feature parsing", function(done) {
     it("handles lowercase it", function(done) {
         var inputFile = "test/fixtures/spec/exampleSpecLc.feature";
         featureParser(inputFile, function(spec) {
-            assert.equal(spec.description, "should do something");
-            done();
+            if(spec.description != null) {
+                assert.equal(spec.description, "should do something");
+                done();
+            }
+
         });
     });
 

@@ -79,6 +79,20 @@ describe("Tranformation", function() {
         verifyFileOutput(inputFile, expectedOutput, done);
     });
 
+    it("can parse a real feature", function(done) {
+        var inputFile = "test/fixtures/spec/realSpec.feature";
+        var expectedOutput = {
+            'should have a tab title of "More Live".' : 'test/fixtures/spec/realSpec.feature:8',
+            'should be the third tab after the tab labelled "Data"' : 'test/fixtures/spec/realSpec.feature:9',
+            'should only be displayed if the "Live Page Cross Promo" module is present.' : "test/fixtures/spec/realSpec.feature:10",
+            'should only display the tab on resolutions less than 899px (tablet & mobile).' : "test/fixtures/spec/realSpec.feature:11",
+            'should NOT display if the "related_sessions" flagpole is turned off.' : "test/fixtures/spec/realSpec.feature:12",
+            'should NOT display the tab on fallback devices/browsers.' : "test/fixtures/spec/realSpec.feature:13"
+        }
+
+        verifyFileOutput(inputFile, expectedOutput, done);
+    });
+
     function verifyFileOutput(inputFile, expectedOutput, done) {
         var tempOut =  "test/fixtures/test-output/tmp.json";
 
