@@ -64,6 +64,21 @@ describe("Tranformation", function() {
         verifyFileOutput(inputFile, expectedOutput, done);
     });
 
+    it("can handle newlines as a delimiter", function(done) {
+        var inputFile = "test/fixtures/spec/fullNewlineDelimiter.feature";
+        var expectedOutput = {
+            "first description" : {
+                "should do something" : "test/fixtures/spec/fullNewlineDelimiter.feature:2"
+            },
+            "second description" : {
+                "nested description" : {
+                    "should do something else" : "test/fixtures/spec/fullNewlineDelimiter.feature:6"
+                }
+            }
+        }
+        verifyFileOutput(inputFile, expectedOutput, done);
+    });
+
     function verifyFileOutput(inputFile, expectedOutput, done) {
         var tempOut =  "test/fixtures/test-output/tmp.json";
 

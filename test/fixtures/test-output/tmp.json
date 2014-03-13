@@ -1,10 +1,10 @@
 {
     "first description": {
-        "should do something": "test/fixtures/spec/full.feature:2"
+        "should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"
     },
     "second description": {
         "nested description": {
-            "should do something else": "test/fixtures/spec/full.feature:6"
+            "should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"
         }
     }
 }

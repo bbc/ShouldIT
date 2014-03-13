@@ -54,6 +54,16 @@ describe("Feature parsing", function(done) {
         });
     });
 
+    it("can delimit describes with new lines", function(done) {
+        var inputFile = "test/fixtures/spec/closedDescribeNewline.feature";
+        featureParser(inputFile, function(spec) {
+            assert.equal(spec.description, "should do something");
+            assert.equal(spec.suite.length, 1);
+            assert.equal(spec.suite[0], "open description");
+            done();
+        });
+    });
+
     it("calls the callback for each IT", function(done) {
         var inputFile = "test/fixtures/spec/multiIt.feature";
         var callcount = 0;
