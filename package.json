@@ -19,6 +19,11 @@
     "output"
   ],
   "author": "Richard McIntyre",
+  "contributors": [
+    {
+      "name": "James Ruston"
+    }
+  ],
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/mackstar/spec-detective/issues"
@@ -31,9 +36,11 @@
     "grunt-jslint": "~1.0.0",
     "mocha": "~1.17.1",
     "chai": "~1.9.0",
-    "line-reader": "0.2.3",
     "underscore": "1.6.0",
-    "chai-fuzzy": "1.4.0",
-    "colors": "~0.6.2"
+    "chai-fuzzy": "1.4.0"
+  },
+  "dependencies": {
+    "line-reader": "^0.2.3",
+    "colors": "^0.6.2"
   }
 }
