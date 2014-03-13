@@ -5,13 +5,13 @@ var buildConfig = require("../lib/configBuilder"),
 describe ("Config Builder", function () {
 
 	beforeEach(function(){
-		args = ["", "", "", "", ""];
+		args = ["", "", "", ""];
 	});
 
 	it("should be able to take a set input file", function(){
-		var inputFile = "tests/fixtures/spec/exampleSpec.feature";
-		args[2] = inputFile;
-		assert.equal(buildConfig(args).inputFile, inputFile);
+		var glob = "tests/fixtures/spec/exampleSpec.feature";
+		args[2] = glob;
+		assert.equal(buildConfig(args).glob, glob);
 	});
 
 	it("should be able to take a set file to compare to", function(){
@@ -20,15 +20,9 @@ describe ("Config Builder", function () {
 		assert.equal(buildConfig(args).comparisonFile, comparisonFile);
 	});
 
-	it("should be able to have an output file when set", function(){
-		var outputFile = "tests/fixtures/test-output/output.tmp.json";
-		args[4] = outputFile;
-		assert.equal(buildConfig(args).outputFile, outputFile);
-	});
-
 	it("should raise an exeption if the input file isnt passed", function() {
 		args[2] = undefined;
-		assert.throws(function() {buildConfig(args)}, Error, "An input file must be specified");
+		assert.throws(function() {buildConfig(args)}, Error, "A glob must be specified");
 	});
 
 	it("should raise an exeption if the comparison file isnt passed", function() {
@@ -36,8 +30,4 @@ describe ("Config Builder", function () {
 		assert.throws(function() {buildConfig(args)}, Error, "A comparison file must be specified");
 	});
 
-	it("should raise an exeption if the output file isnt passed", function() {
-		args[4] = undefined;
-		assert.throws(function() {buildConfig(args)}, Error, "An output file must be specified");
-	});
 });
