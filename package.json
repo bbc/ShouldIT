@@ -37,7 +37,8 @@
     "mocha": "~1.17.1",
     "chai": "~1.9.0",
     "underscore": "1.6.0",
-    "chai-fuzzy": "1.4.0"
+    "chai-fuzzy": "1.4.0",
+    "grunt-mocha-test": "^0.9.4"
   },
   "dependencies": {
     "line-reader": "^0.2.3",

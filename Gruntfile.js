@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   'use strict';
 
   grunt.loadNpmTasks('grunt-jslint');
-  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   grunt.initConfig({
     jslint: {
@@ -13,9 +13,18 @@ module.exports = function (grunt) {
         },
         directives: {}
       }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      }
     }
   });
 
-  grunt.registerTask('default', ['jslint']);
+  grunt.registerTask('default', ['jslint', 'mochaTest']);
+  grunt.registerTask('test', ['mochaTest']);
 
 }
