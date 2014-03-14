@@ -16,7 +16,7 @@ specCollector(config.glob, function(specs) {
         if (err) throw err;
         fileCollector(config.specFile, config.comparisonFile, function(files){
             var results = inspector(files.reverse());
-            output = spitterOuter(results);
+            var output = spitterOuter(results);
             for (var i = 0; i < output.length; i++) {
                 console.log(output[i]);
             }
