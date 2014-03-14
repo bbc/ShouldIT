@@ -3,27 +3,20 @@
 
 var configBuilder = require('./lib/configBuilder'),
     featureTransformer = require('./lib/featureTransformer'),
-    glob = require('glob'),
+    specCollector = require('./lib/specCollector'),
+    jf = require('jsonfile'),
     config = configBuilder(process.argv),
     fullSpec;
 
-glob(config.glob, {}, function (err, files) {
-    if(err) throw new Error("Error processing glob");
-
-    processFiles(files);
-  // files is an array of filenames.
-  // If the `nonull` option is set, and nothing
-  // was found, then files is ["**/*.js"]
-  // er is an error object or null.
+specCollector(config.glob, function(specs) {
+    fs.writeFile(config.specFile, JSON.stringify(specs), function (err) {
+        if (err) throw err;
+        fileCollector(config.specFile, config.comparisonFile, function(files){
+            var results = inspector(files);
+            output = spitterOuter(results);
+            for (var i = output.length - 1; i >= 0; i--) {
+                console.log(output[i]);
+            }
+        });
+    });
 });
-
-function processFile(files) {
-    var i = 0;
-    for(i; i < files.length; i++) {
-        featureTransformer(files[i], collectSpecs);
-    }
-}
-
-function collectSpecs(spec) {
-
-}
