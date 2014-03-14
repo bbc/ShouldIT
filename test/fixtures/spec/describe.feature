@@ -1,2 +1,5 @@
-DESCRIBE a description
-    IT should do something
+{
+    "open description": {
+        "should do something": "test/fixtures/spec/closedDescribe.feature:4"
+    }
+}

@@ -2,7 +2,7 @@ var assert = require('assert'),
     mockery = require('mockery'),
     sinon = require('sinon');
 
-describe.only("Spec collector", function() {
+describe("Spec collector", function() {
     var calls = [],
         transformerSpy,
         globStub,
@@ -16,7 +16,7 @@ describe.only("Spec collector", function() {
                 i++;
                 object = {};
                 object['some data' + i] = 'some value';
-                callback(object);
+                callback(JSON.stringify(object));
             }
         mockery.enable();
         transformerSpy = sinon.spy(transformer);

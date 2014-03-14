@@ -4,7 +4,7 @@
     assert = require('assert');
 
 
-    describe("Inspector", function() {
+    describe.only("Inspector", function() {
         it("should tell when a match is found", function() {
             var expected = responseObject();
             expected.passed = [{
@@ -21,6 +21,73 @@
             }];
             files = filesContent();
             files[1]["describe something"] = {"should do something else" : "PASSED"};
+            objectsEqual(inspector(files), expected);
+        });
+
+        it("should tell when a nested match is not found", function() {
+
+            var expected = responseObject();
+            expected.pending = [{
+                "describe something else should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            }];
+            files = filesContent();
+            files[0]["describe something"] = {};
+            files[0]["describe something"]["else"] = {"should do something" : "test/fixtures/spec/exampleSpec.feature:1"};
+            objectsEqual(inspector(files), expected);
+        });
+
+        it("should handle the spec not matching the output", function() {
+            var expected = responseObject();
+            expected.pending = 
+            [
+                {"first description should do something" : 'test/fixtures/spec/full.feature:2'},
+                { "second description nested description should do something else" : "test/fixtures/spec/full.feature:6"}
+            ];
+
+            files = [];
+            files[0] = 
+            {
+                "first description": {
+                    "should do something": "test/fixtures/spec/full.feature:2"
+                },
+                "second description": {
+                    "nested description": {
+                        "should do something else": "test/fixtures/spec/full.feature:6"
+                    }
+                }
+            };
+
+            files[1] = { 'describe something': { 'should do something': 'PASSED' } };
+
+            objectsEqual(inspector(files), expected);
+
+        });
+
+        it("should handle multiple ITS inside a describe", function() {
+            var expected = responseObject();
+            expected.pending = 
+            [
+                { "first description should do something" : "test/fixtures/spec/full.feature:2"},
+                { "second description nested description should do something else" : "test/fixtures/spec/full.feature:6"},
+                { "second description nested description should do a final thing" : "test/fixtures/spec/full.feature:7"}
+            ];
+
+            files = [];
+            files[0] = 
+            {
+                "first description": {
+                    "should do something": "test/fixtures/spec/full.feature:2"
+                },
+                "second description": {
+                    "nested description": {
+                        "should do something else": "test/fixtures/spec/full.feature:6",
+                        "should do a final thing": "test/fixtures/spec/full.feature:7"
+                    }
+                }
+            };
+
+            files[1] = { 'describe something': { 'should do something': 'PASSED' } };
+
             objectsEqual(inspector(files), expected);
         });
 
