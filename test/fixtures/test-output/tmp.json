@@ -1,8 +1,9 @@
 {
-    "should have a tab title of \"More Live\".": "test/fixtures/spec/realSpec.feature:8",
-    "should be the third tab after the tab labelled \"Data\"": "test/fixtures/spec/realSpec.feature:9",
-    "should only be displayed if the \"Live Page Cross Promo\" module is present.": "test/fixtures/spec/realSpec.feature:10",
-    "should only display the tab on resolutions less than 899px (tablet & mobile).": "test/fixtures/spec/realSpec.feature:11",
-    "should NOT display if the \"related_sessions\" flagpole is turned off.": "test/fixtures/spec/realSpec.feature:12",
-    "should NOT display the tab on fallback devices/browsers.": "test/fixtures/spec/realSpec.feature:13"
+    "should have a tab title of \"More Live\".": "test/fixtures/spec/realSpec.feature:24",
+    "should be the third tab after the tab labelled \"Data\"": "test/fixtures/spec/realSpec.feature:25",
+    "should only be displayed if the \"Live Page Cross Promo\" module is present.": "test/fixtures/spec/realSpec.feature:26",
+    "should only display the tab on resolutions less than 899px (tablet & mobile).": "test/fixtures/spec/realSpec.feature:27",
+    "phones": "test/fixtures/spec/realSpec.feature:16",
+    "should NOT display if the \"related_sessions\" flagpole is turned off.": "test/fixtures/spec/realSpec.feature:28",
+    "should NOT display the tab on fallback devices/browsers.": "test/fixtures/spec/realSpec.feature:29"
 }

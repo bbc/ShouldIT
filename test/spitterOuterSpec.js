@@ -3,7 +3,7 @@
     var spitterOuter = require('../lib/spitterOuter'),
         assert = require('assert');
 
-    describe.only("Spitter Outer", function() {
+    describe("Spitter Outer", function() {
         it("colorise output into an array of console messages", function() {
             var input = {
                 passed: [{"This has passed" : "line"}],
