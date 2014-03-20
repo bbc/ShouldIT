@@ -4,7 +4,7 @@
     assert = require('assert');
 
 
-    describe.only("Inspector", function() {
+    describe("Inspector", function() {
         it("should tell when a match is found", function() {
             var expected = responseObject();
             expected.passed = [{
