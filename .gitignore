@@ -2,5 +2,6 @@
 node_modules
 test-results.xml
 spec-file.json
+test/fixtures/test-output/tmp.jsonspec-file.json
 *.iml
 .idea
