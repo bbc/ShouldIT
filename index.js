@@ -15,7 +15,7 @@ specCollector(config.glob, function(specs) {
     fs.writeFile(config.specFile, JSON.stringify(specs, null, 4), function (err) {
         if (err) throw err;
         fileCollector(config.specFile, config.comparisonFile, function(files){
-            var results = inspector(files.reverse());
+            var results = inspector(files);
             var output = spitterOuter(results);
             for (var i = 0; i < output.length; i++) {
                 console.log(output[i]);
