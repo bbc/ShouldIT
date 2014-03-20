@@ -2,3 +2,5 @@
 node_modules
 test-results.xml
 spec-file.json
+*.iml
+.idea
