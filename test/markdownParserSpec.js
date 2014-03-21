@@ -64,5 +64,19 @@ describe("Markdown parser", function() {
             done();
         });
     });
+    //+ a spec
+    ///            -----> empty last line
+    it("handles files with extra returns", function(done) {
+        var inputFile = "test/fixtures/markdown/emptyLast.md";
+        var count = 0;
+        markdownParser(inputFile, function(spec) {
+            count++;
+            if(count == 2) {
+                assert.equal(spec.last, true);
+                assert.equal(spec.description, null);
+                done();
+            }
+        });
+    })
 
 });
