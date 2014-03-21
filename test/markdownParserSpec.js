@@ -99,6 +99,16 @@ describe("Markdown parser", function() {
         });
     });
 
+    it("matches skips with no space between the chevron and skip keyword", function(done) {
+        var inputFile = "test/fixtures/markdown/skipNoSpace.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.last, true);
+            assert.equal(spec.skip, true);
+            assert.equal(spec.description, null);
+            done();
+        });
+    });
+
     it("skips everything after a skip", function(done) {
         var inputFile = "test/fixtures/markdown/skipPart.md";
         var count = 0;
