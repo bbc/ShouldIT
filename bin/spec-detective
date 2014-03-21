@@ -1,12 +1,13 @@
-/* jslint node: true */
+#!/usr/bin/env node
+
 "use strict";
 
-var configBuilder = require('./lib/configBuilder'),
-    featureTransformer = require('./lib/featureTransformer'),
-    specCollector = require('./lib/specCollector'),
-    fileCollector = require('./lib/fileCollector'),
-    inspector = require('./lib/inspector'),
-    spitterOuter = require('./lib/spitterOuter'),
+var configBuilder = require('../lib/configBuilder'),
+    featureTransformer = require('../lib/featureTransformer'),
+    specCollector = require('../lib/specCollector'),
+    fileCollector = require('../lib/fileCollector'),
+    inspector = require('../lib/inspector'),
+    spitterOuter = require('../lib/spitterOuter'),
     jf = require('jsonfile'),
     fs = require('fs'),
     config = configBuilder(process.argv);
