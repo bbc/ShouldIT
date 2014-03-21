@@ -77,6 +77,28 @@ describe("Markdown parser", function() {
                 done();
             }
         });
-    })
+    });
+
+    it("skips a file with a chevron on the first line", function(done) {
+        var inputFile = "test/fixtures/markdown/skipFile.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.last, true);
+            assert.equal(spec.skip, true);
+            assert.equal(spec.description, null);
+            done();
+        });
+    });
+
+    it("skips everything after a skip", function(done) {
+        var inputFile = "test/fixtures/markdown/skipPart.md";
+        var count = 0;
+        markdownParser(inputFile, function(spec) {
+            count++;
+            if(count >= 2) {
+                assert.equal(spec.skip, true);
+                done();
+            }
+        });
+    });
 
 });
