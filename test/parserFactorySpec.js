@@ -3,7 +3,7 @@ var ParserFactory = require('../lib/parserFactory'),
     markdownParser = require('../lib/markdownParser'),
     assert = require('assert');
 
-describe.only("parserFactory", function() {
+describe("parserFactory", function() {
     var factory;
     beforeEach(function() {
         factory = new ParserFactory();
