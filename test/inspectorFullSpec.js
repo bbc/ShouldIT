@@ -34,7 +34,6 @@
             objectsEqual(inspector([feature, testResult]).passed, expected);
         });
 
-
         it("should match second level specs", function() {
              var expected = [
                 {"a description another description should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"},
