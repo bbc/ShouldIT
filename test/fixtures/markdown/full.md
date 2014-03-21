@@ -1,6 +1,6 @@
 # a description
 ## another description
-* a spec
++ a spec
 ## a third description
 ### a fourth description
-* a second spec
++ a second spec

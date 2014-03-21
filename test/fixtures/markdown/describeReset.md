@@ -1,5 +1,5 @@
 # a describe
 ## another describe
-* a spec
++ a spec
 # reset describe
-* a second spec
++ a second spec
