@@ -101,4 +101,12 @@ describe("Markdown parser", function() {
         });
     });
 
+    it("strips its from the matched spec", function(done) {
+        var inputFile = "test/fixtures/markdown/upperIT.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.description, "should do something");
+            done();
+        });
+    });
+
 });
