@@ -4,13 +4,13 @@ var featureTransformer = require('../lib/featureTransformer'),
     assert = require('chai').assert;
 chai.use(require('chai-fuzzy'));
 
-describe("Tranformation", function() {
+describe("Transformation", function() {
 
     it("transforms a single IT", function(done) {
         var inputFile = "test/fixtures/spec/exampleSpec.feature";
         var expectedOutput = {
             "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
         
     });
@@ -21,7 +21,7 @@ describe("Tranformation", function() {
             "a description" : {
                 "should do something" : "test/fixtures/spec/describe.feature:2"
             }
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
         
     });
@@ -35,7 +35,7 @@ describe("Tranformation", function() {
                 }
                 
             }
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
     });
 
@@ -45,7 +45,7 @@ describe("Tranformation", function() {
             "open description" : {
                 "should do something" : "test/fixtures/spec/closedDescribe.feature:4"
             }
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
     });
 
@@ -60,7 +60,7 @@ describe("Tranformation", function() {
                     "should do something else" : "test/fixtures/spec/full.feature:6"
                 }
             }
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
     });
 
@@ -75,7 +75,7 @@ describe("Tranformation", function() {
                     "should do something else" : "test/fixtures/spec/fullNewlineDelimiter.feature:6"
                 }
             }
-        }
+        };
         verifyOutput(inputFile, expectedOutput, done);
     });
 
@@ -88,9 +88,22 @@ describe("Tranformation", function() {
             'should only display the tab on resolutions less than 899px (tablet & mobile).' : "test/fixtures/spec/realSpec.feature:11",
             'should NOT display if the "related_sessions" flagpole is turned off.' : "test/fixtures/spec/realSpec.feature:12",
             'should NOT display the tab on fallback devices/browsers.' : "test/fixtures/spec/realSpec.feature:13"
-        }
+        };
 
         verifyOutput(inputFile, expectedOutput, done);
+    });
+
+    describe("parsing markdown", function() {
+
+        it("can parse a markdown file", function(done) {
+            var inputFile = "test/fixtures/markdown/describe.md";
+            var expectedOutput = {
+                "a description" : {
+                    "should do something" : "test/fixtures/markdown/describe.md:2"
+                }
+            };
+            verifyOutput(inputFile, expectedOutput, done);
+        });
     });
 
     function verifyOutput(inputFile, expectedOutput, done) {
