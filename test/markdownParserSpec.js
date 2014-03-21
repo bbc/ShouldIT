@@ -89,6 +89,16 @@ describe("Markdown parser", function() {
         });
     });
 
+    it("skips a file with a skip regardless of case", function(done){
+        var inputFile = "test/fixtures/markdown/upperSkip.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.last, true);
+            assert.equal(spec.skip, true);
+            assert.equal(spec.description, null);
+            done();
+        });
+    });
+
     it("skips everything after a skip", function(done) {
         var inputFile = "test/fixtures/markdown/skipPart.md";
         var count = 0;
@@ -108,5 +118,6 @@ describe("Markdown parser", function() {
             done();
         });
     });
+
 
 });
