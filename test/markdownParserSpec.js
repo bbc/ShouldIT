@@ -89,6 +89,26 @@ describe("Markdown parser", function() {
         });
     });
 
+    it("skips a file with a skip regardless of case", function(done){
+        var inputFile = "test/fixtures/markdown/upperSkip.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.last, true);
+            assert.equal(spec.skip, true);
+            assert.equal(spec.description, null);
+            done();
+        });
+    });
+
+    it("matches skips with no space between the chevron and skip keyword", function(done) {
+        var inputFile = "test/fixtures/markdown/skipNoSpace.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.last, true);
+            assert.equal(spec.skip, true);
+            assert.equal(spec.description, null);
+            done();
+        });
+    });
+
     it("skips everything after a skip", function(done) {
         var inputFile = "test/fixtures/markdown/skipPart.md";
         var count = 0;
@@ -100,5 +120,14 @@ describe("Markdown parser", function() {
             }
         });
     });
+
+    it("strips its from the matched spec", function(done) {
+        var inputFile = "test/fixtures/markdown/upperIT.md";
+        markdownParser(inputFile, function(spec) {
+            assert.equal(spec.description, "should do something");
+            done();
+        });
+    });
+
 
 });
