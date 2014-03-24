@@ -29,11 +29,8 @@ describe("Transformation", function() {
     it("transforms nested describes", function(done) {
         var inputFile = "test/fixtures/spec/twoDescribes.feature";
         var expectedOutput = {
-            "a description" : {
-                "another description" : {
-                    "should match 2 descriptions" : "test/fixtures/spec/twoDescribes.feature:3"
-                }
-                
+            "a description another description" : {
+                "should match 2 descriptions" : "test/fixtures/spec/twoDescribes.feature:3"
             }
         };
         verifyOutput(inputFile, expectedOutput, done);
@@ -55,10 +52,8 @@ describe("Transformation", function() {
             "first description" : {
                 "should do something" : "test/fixtures/spec/full.feature:2"
             },
-            "second description" : {
-                "nested description" : {
-                    "should do something else" : "test/fixtures/spec/full.feature:6"
-                }
+            "second description nested description" : {
+                "should do something else" : "test/fixtures/spec/full.feature:6"
             }
         };
         verifyOutput(inputFile, expectedOutput, done);
@@ -70,10 +65,8 @@ describe("Transformation", function() {
             "first description" : {
                 "should do something" : "test/fixtures/spec/fullNewlineDelimiter.feature:2"
             },
-            "second description" : {
-                "nested description" : {
-                    "should do something else" : "test/fixtures/spec/fullNewlineDelimiter.feature:6"
-                }
+            "second description nested description" : {
+                "should do something else" : "test/fixtures/spec/fullNewlineDelimiter.feature:6"
             }
         };
         verifyOutput(inputFile, expectedOutput, done);

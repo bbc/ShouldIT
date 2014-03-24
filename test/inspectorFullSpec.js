@@ -20,8 +20,8 @@
 
         it("should match first level specs", function() {
              var expected = [
-                {"open description should do something": "test/fixtures/spec/closedDescribeNewline.feature:4"},
-                {"first description should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"},
+                {"open description": {"should do something": "test/fixtures/spec/closedDescribeNewline.feature:4"}},
+                {"first description": {"should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"}},
             ];
             testResult = {
                 "open description": {
@@ -36,19 +36,15 @@
 
         it("should match second level specs", function() {
              var expected = [
-                {"a description another description should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"},
-                {"second description nested description should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"},
+                {"a description another description": { "should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"}},
+                {"second description nested description": {"should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"}},
             ];
             testResult = {
-                "a description": {
-                    "another description": {
-                        "should match 2 descriptions": "PASSED"
-                    }
+                "a description another description": {
+                    "should match 2 descriptions": "PASSED"
                 },
-                "second description": {
-                    "nested description": {
-                        "should do something else": "PASSED"
-                    }
+                "second description nested description": {
+                    "should do something else": "PASSED"
                 }
             };
             objectsEqual(inspector([feature, testResult]).passed, expected);
@@ -56,14 +52,12 @@
 
         it("should match nested and non nested specs", function() {
              var expected = [
-                {"second description nested description should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"},
+                {"second description nested description":{"should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"}},
                 {"should only be displayed if the \"Live Page Cross Promo\" module is present.": "test/fixtures/spec/realSpec.feature:26"}
             ];
             testResult = {
-                "second description": {
-                    "nested description": {
-                        "should do something else": "PASSED"
-                    }
+                "second description nested description": {
+                    "should do something else": "PASSED"
                 },
                 "should only be displayed if the \"Live Page Cross Promo\" module is present.": "PASSED",
             };

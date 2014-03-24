@@ -8,7 +8,9 @@
         it("should tell when a match is found", function() {
             var expected = responseObject();
             expected.passed = [{
-                "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                "describe something": {
+                    "should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                }
             }];
             objectsEqual(inspector(filesContent()), expected);
         });
@@ -17,22 +19,28 @@
 
             var expected = responseObject();
             expected.pending = [{
-                "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                "describe something": {
+                    "should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                }
             }];
             files = filesContent();
             files[1]["describe something"] = {"should do something else" : "PASSED"};
             objectsEqual(inspector(files), expected);
         });
 
-        it("should tell when a nested match is not found", function() {
+        it("should tell when a non suite-ed match is found", function() {
 
-            var expected = responseObject();
-            expected.pending = [{
-                "describe something else should do something": "test/fixtures/spec/exampleSpec.feature:1"
+            var expected = responseObject(),
+                files;
+
+            expected.passed = [{
+                "should do something": "test/fixtures/spec/exampleSpec.feature:1"
             }];
-            files = filesContent();
-            files[0]["describe something"] = {};
-            files[0]["describe something"]["else"] = {"should do something" : "test/fixtures/spec/exampleSpec.feature:1"};
+
+            files = [
+                {"should do something" : "test/fixtures/spec/exampleSpec.feature:1"},
+                {"should do something" : "PASSED"}
+            ];
             objectsEqual(inspector(files), expected);
         });
 
@@ -40,8 +48,14 @@
             var expected = responseObject();
             expected.pending = 
             [
-                {"first description should do something" : 'test/fixtures/spec/full.feature:2'},
-                { "second description nested description should do something else" : "test/fixtures/spec/full.feature:6"}
+                {"first description": {
+                    "should do something" : 'test/fixtures/spec/full.feature:2'
+                    }
+                },
+                {"second description nested description" : {
+                    "should do something else" : "test/fixtures/spec/full.feature:6"
+                    }
+                }
             ];
 
             files = [];
@@ -50,10 +64,8 @@
                 "first description": {
                     "should do something": "test/fixtures/spec/full.feature:2"
                 },
-                "second description": {
-                    "nested description": {
-                        "should do something else": "test/fixtures/spec/full.feature:6"
-                    }
+                "second description nested description": {
+                    "should do something else": "test/fixtures/spec/full.feature:6"
                 }
             };
 
@@ -67,9 +79,9 @@
             var expected = responseObject();
             expected.pending = 
             [
-                { "first description should do something" : "test/fixtures/spec/full.feature:2"},
-                { "second description nested description should do something else" : "test/fixtures/spec/full.feature:6"},
-                { "second description nested description should do a final thing" : "test/fixtures/spec/full.feature:7"}
+                { "first description": {"should do something" : "test/fixtures/spec/full.feature:2"}},
+                { "second description nested description": {"should do something else" : "test/fixtures/spec/full.feature:6"}},
+                { "second description nested description": {"should do a final thing" : "test/fixtures/spec/full.feature:7"}}
             ];
 
             files = [];
@@ -78,11 +90,9 @@
                 "first description": {
                     "should do something": "test/fixtures/spec/full.feature:2"
                 },
-                "second description": {
-                    "nested description": {
-                        "should do something else": "test/fixtures/spec/full.feature:6",
-                        "should do a final thing": "test/fixtures/spec/full.feature:7"
-                    }
+                "second description nested description": {
+                    "should do something else": "test/fixtures/spec/full.feature:6",
+                    "should do a final thing": "test/fixtures/spec/full.feature:7"
                 }
             };
 
@@ -95,7 +105,7 @@
 
             var expected = responseObject();
             expected.failed =[{
-                    "describe something should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                    "describe something": {"should do something": "test/fixtures/spec/exampleSpec.feature:1"}
             }];
             files = filesContent();
             files[1]["describe something"] = {"should do something" : "FAILED"};
@@ -105,7 +115,7 @@
         it("should tell when a nested match is found", function() {
             var expected = responseObject();
             expected.passed = [{
-                "describe something else should do something": "test/fixtures/spec/exampleSpec.feature:1"
+                "describe something else": {"should do something": "test/fixtures/spec/exampleSpec.feature:1"}
             }];
             objectsEqual(inspector(nestedFilesContent()), expected);
         });
@@ -142,17 +152,13 @@
 
     function nestedFilesContent() {
         return [{
-            "describe something" : {
-                "else": {
-                    "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
-                }
+            "describe something else" : {
+                "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
             }
         },
         {
-            "describe something" : {
-                "else": {
-                    "should do something" : "PASSED"
-                }
+            "describe something else" : {
+                "should do something" : "PASSED"
             }
         }];
     }
