@@ -1,30 +1,37 @@
 module.exports = function (grunt) {
-  'use strict';
+    'use strict';
 
-  grunt.loadNpmTasks('grunt-jslint');
-  grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.initConfig({
-    jslint: {
-      source: {
-        src: ['index.js'],
-        options: {
-          failOnError: true
+    grunt.initConfig({
+        jslint: {
+            source: {
+                src: ['index.js'],
+                options: {
+                    failOnError: true
+                },
+                directives: {}
+            }
         },
-        directives: {}
-      }
-    },
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
+        mochaTest: {
+            test: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['test/**/*.js']
+            }
         },
-        src: ['test/**/*.js']
-      }
-    }
-  });
+        watch: {
+            scripts: {
+                files: ['lib/*.js', 'test/**/*.js'],
+                tasks: ['test']
+            }
+        }
+    });
 
-  grunt.registerTask('default', ['jslint', 'mochaTest']);
-  grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('default', ['jslint', 'mochaTest']);
+    grunt.registerTask('test', ['mochaTest']);
 
 }
