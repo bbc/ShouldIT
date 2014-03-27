@@ -2,6 +2,8 @@ var assert = require('assert'),
     mockery = require('mockery'),
     sinon = require('sinon');
 
+
+
 describe("Spec collector", function() {
     var calls = [],
         transformerSpy,
@@ -19,6 +21,8 @@ describe("Spec collector", function() {
                 callback(JSON.stringify(object));
             }
         mockery.enable();
+        mockery.warnOnReplace(false);
+        mockery.warnOnUnregistered(false);
         transformerSpy = sinon.spy(transformer);
 
 
