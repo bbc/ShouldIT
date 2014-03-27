@@ -5,3 +5,4 @@ spec-file.json
 test/fixtures/test-output/tmp.jsonspec-file.json
 *.iml
 .idea
+junit-output.xml

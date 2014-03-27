@@ -1,7 +1,7 @@
 var JunitXmlWriter = require('../lib/junitXmlWriter'),
     assert = require('assert'),
     fs = require('fs'),
-    outputPath = '../junit-output.xml',
+    outputPath = 'junit-output.xml',
     parseString = require('xml2js').parseString;
 
 
@@ -16,6 +16,7 @@ describe("junit XML writer", function () {
     });
 
     describe("counting the specs", function() {
+
 
         it("specifies the correct number of tests in a suite", function(done) {
             var results = responseObject();
@@ -103,6 +104,20 @@ describe("junit XML writer", function () {
         });
     });
 
+    it("handles a spec that isnt nested in a describe", function(done) {
+        var results = responseObject();
+        results.passed.push(specWithoutDescribe());
+
+        xmlWriter.writeResults(results);
+        var output = fs.readFileSync(outputPath, 'utf8');
+        parseString(output, function (err, result) {
+            assert.equal(result.testsuite.testcase[0].$.classname, '');
+            assert.equal(result.testsuite.testcase[0].$.name, 'a spec');
+            done();
+
+        });
+    });
+
 
     function responseObject() {
         return {
@@ -130,5 +145,9 @@ describe("junit XML writer", function () {
         return {
             "describe" : { "spec": "line"}
         }
+    }
+
+    function specWithoutDescribe() {
+        return  {"a spec": "line"}
     }
 });
