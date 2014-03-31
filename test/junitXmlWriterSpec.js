@@ -99,6 +99,7 @@ describe("junit XML writer", function () {
         parseString(output, function (err, result) {
             assert.equal(result.testsuite.testcase[0].$.classname, 'describe');
             assert.equal(result.testsuite.testcase[0].$.name, 'spec');
+            assert.equal(result.testsuite.testcase[0].$.time, '0');
             assert.equal(result.testsuite.testcase[0].failure, 'line');
             done();
         });
