@@ -1,19 +1,13 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.initConfig({
-        jslint: {
-            source: {
-                src: ['index.js'],
-                options: {
-                    failOnError: true
-                },
-                directives: {}
-            }
+        jshint: {
+            all: ['lib/*']
         },
         mochaTest: {
             test: {
@@ -31,7 +25,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['jslint', 'mochaTest']);
+    grunt.registerTask('default', ['jshint', 'mochaTest']);
     grunt.registerTask('test', ['mochaTest']);
 
 }

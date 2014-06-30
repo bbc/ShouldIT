@@ -1,5 +1,5 @@
 var featureParser = require('../lib/featureParser'),
-	assert = require('assert');
+    assert = require('assert');
 
 describe("Feature parsing", function(done) {
 
@@ -7,13 +7,13 @@ describe("Feature parsing", function(done) {
         featureParser = require('../lib/featureParser');
     });
 
-	it("callsback with the first spec found", function(done) {
-		var inputFile = "test/fixtures/spec/exampleSpec.feature";
-		featureParser(inputFile, function(spec) {
+    it("callsback with the first spec found", function(done) {
+        var inputFile = "test/fixtures/spec/exampleSpec.feature";
+        featureParser(inputFile, function(spec) {
             assert.equal(spec.description, "should do something");
             done();
         });
-	});
+    });
 
     it("handles lowercase it", function(done) {
         var inputFile = "test/fixtures/spec/exampleSpecLc.feature";
