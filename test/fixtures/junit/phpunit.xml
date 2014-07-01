@@ -13,4 +13,17 @@ Failed asserting that &lt;boolean:false&gt; is true.
       </testcase>
     </testsuite>
   </testsuite>
+  <testsuite name="Phing Batchtest" tests="310" assertions="401" failures="0" errors="0" time="0.880709">
+    <testsuite name="Company_Product_Liveexperience_Builder_ComponentPresenter_ComponentDefTest" file="/vagrant/product/webapp/php/lib-test/BBC/Liveexperience/Builder/ComponentPresenter/ComponentDefTest.php" fullPackage="BBC.Liveexperience.Builder.ComponentPresenter" tests="11" assertions="20" failures="0" errors="0" time="0.024728">
+      <testcase name="testInstantiation" class="Company_Product_Liveexperience_Builder_ComponentPresenter_ComponentDefTest" file="/vagrant/product/webapp/php/lib-test/BBC/product/Builder/ComponentPresenter/ComponentDefTest.php" line="28" assertions="1" time="0.005613"/>
+      <testcase name="testNewCollectionInstanceOfLtcCollection" class="Company_Product_Models_LtcCollectionTest" file="/vagrant/liveexperience/webapp/php/lib-test/Company/Liveexperience/Models/LtcCollectionTest.php" line="7" assertions="2" time="0.010806">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">Company_Product_Liveexperience_Models_LtcCollectionTest::testNewCollectionInstanceOfLtcCollection
+Failed asserting that &lt;boolean:false&gt; is true.
+
+/vagrant/liveexperience/webapp/php/lib-test/Company/Product/Models/LtcCollectionTest.php:17
+/usr/share/pear/phing.php:37
+</failure>
+      </testcase>
+    </testsuite>
+  </testsuite>
 </testsuites>

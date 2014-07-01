@@ -40,16 +40,10 @@ describe ("JUnit Converter", function () {
         var file = "test/fixtures/junit/phpunit.xml";
         converter = new Converter(file);
         converter.exec(function (results) {
-            assert.equal(JSON.stringify(results), JSON.stringify({ 'Coverage Api':
+            assert.equal(JSON.stringify(results), JSON.stringify({ "Component Def": 
                 {
-                    'get returns with 200 status on successful request': 'PASSED',
-                    'get returns with 500 status if repository failure exception': 'PASSED',
-                    'live request in moments repository contains the correct request uri': 'PASSED',
-                    'get returns with 503 status if resource not available exception': 'PASSED',
-                    'get returns with 400 status if id parameter is undefined': 'PASSED',
-                    'get returns transformed response from moment repository': 'PASSED',
-                    'get from content api returns 404': 'PASSED',
-                    'get returns with 400 status if id parameter is empty': 'PASSED'
+                    "instantiation":"PASSED",
+                    "new collection instance of ltc collection":"FAILED"
                 }
             }));
         });
