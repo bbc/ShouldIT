@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.dept.product.api.CoverageApiTest" time="0.005" tests="8" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+  </properties>
+  <testcase name="getReturnsWith200StatusOnSuccessfulRequest" classname="company.dept.product.api.CoverageApiTest" time="0"/>
+  <testcase name="getReturnsWith500StatusIfRepositoryFailureException" classname="company.dept.product.api.CoverageApiTest" time="0"/>
+  <testcase name="liveRequestInMomentsRepositoryContainsTheCorrectRequestUri" classname="company.dept.product.api.CoverageApiTest" time="0.001"/>
+  <testcase name="getReturnsWith503StatusIfResourceNotAvailableException" classname="company.dept.product.api.CoverageApiTest" time="0.001"/>
+  <testcase name="getReturnsWith400StatusIfIdParameterIsUndefined" classname="company.dept.product.api.CoverageApiTest" time="0.001"/>
+  <testcase name="getReturnsTransformedResponseFromMomentRepository" classname="company.dept.product.api.CoverageApiTest" time="0.001"/>
+  <testcase name="getFromContentApiReturns404" classname="company.dept.product.api.CoverageApiTest" time="0.001"/>
+  <testcase name="getReturnsWith400StatusIfIdParameterIsEmpty" classname="company.dept.product.api.CoverageApiTest" time="0"/>
+</testsuite>

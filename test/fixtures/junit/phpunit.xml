@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Phing Batchtest" tests="310" assertions="401" failures="0" errors="0" time="0.880709">
+    <testsuite name="BBC_Liveexperience_Builder_ComponentPresenter_ComponentDefTest" file="/vagrant/liveexperience/webapp/php/lib-test/BBC/Liveexperience/Builder/ComponentPresenter/ComponentDefTest.php" fullPackage="BBC.Liveexperience.Builder.ComponentPresenter" tests="11" assertions="20" failures="0" errors="0" time="0.024728">
+      <testcase name="testInstantiation" class="BBC_Liveexperience_Builder_ComponentPresenter_ComponentDefTest" file="/vagrant/liveexperience/webapp/php/lib-test/BBC/Liveexperience/Builder/ComponentPresenter/ComponentDefTest.php" line="28" assertions="1" time="0.005613"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
