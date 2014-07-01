@@ -31,7 +31,6 @@ function compareOutputFiles(specFile, resultsFile) {
         });
     }
 
-
 /**
  * Get the specs from the spec collector
  */
