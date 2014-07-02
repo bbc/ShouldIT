@@ -1,6 +1,6 @@
 # Spec Detective
 
-This is a BDD tool for checking and specking tests.
+This is a BDD tool for checking and specking tests against beautiful looking feature files written in MarkDown.
 
 ## The Feature File
 
