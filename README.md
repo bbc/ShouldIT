@@ -6,6 +6,39 @@ This is a BDD tool for checking and specking tests against beautiful looking fea
 
 You can write feature files in markdown. You can add any information you want in any way to describe your features. However adding the following style of syntax.
 
+```
+# My Feature
+
+This can contain explanations and other details about your feature
+
+## My Context
+
++ IT should have a test that passes
+- IT may not have a test that is skipped
+
+## My Other Context
+
++ IT should also have other tests passing in other contexts
+    - You can add other ignored meta-data
+```
+### Using Javascript Tests
+
+This tool particularly likes Javascript testing frameworks (Jasmine or Mocha). 
+
+```javascript
+describe("My Feature", function () {
+    describe("My Context", function () {
+        it("should have a test that passes", function () {
+            ...
+        });
+    });
+    describe("My Other Context", function () {
+        it("should also have other tests passing in other contexts", function () {
+            ...
+        });
+    });
+});
+```
 
 ### Using JUnit output
 
@@ -51,3 +84,4 @@ This we can then line up to a feature file that looks like the following.
 
 + IT should always pass
 ```
+So you can also use anything that also outputs similar JUnitXML 
