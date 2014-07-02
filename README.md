@@ -33,7 +33,7 @@ The above specks you can write in a JS test as follows:
 
 
 ```javascript
-"describe("My Feature", function () {
+describe("My Feature", function () {
     describe("My Context", function () {
         it("should have a test that passes", function () {
             ...
@@ -44,7 +44,7 @@ The above specks you can write in a JS test as follows:
             ...
         });
     });
-});"
+});
 ```
 
 ### Test output files
