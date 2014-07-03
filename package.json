@@ -1,6 +1,6 @@
 {
   "name": "spec-detective",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A cool way to find out if your spec's in feature files and the like have met expectations.",
   "main": "index.js",
   "scripts": {
@@ -52,7 +52,6 @@
     "line-reader": "~0.2.3",
     "colors": "~0.6.2",
     "glob": "~3.2.9",
-    "jsonfile": "~1.1.1",
-    "xmlbuilder": "~2.1.0"
+    "jsonfile": "~1.1.1"
   }
 }
