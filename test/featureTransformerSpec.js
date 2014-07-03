@@ -15,63 +15,6 @@ describe("Transformation", function() {
         
     });
 
-    it("transforms a describe", function(done) {
-        var inputFile = "test/fixtures/spec/describe.feature";
-        var expectedOutput = {
-            "a description" : {
-                "should do something" : "test/fixtures/spec/describe.feature:2"
-            }
-        };
-        verifyOutput(inputFile, expectedOutput, done);
-        
-    });
-
-    it("transforms nested describes", function(done) {
-        var inputFile = "test/fixtures/spec/twoDescribes.feature";
-        var expectedOutput = {
-            "a description another description" : {
-                "should match 2 descriptions" : "test/fixtures/spec/twoDescribes.feature:3"
-            }
-        };
-        verifyOutput(inputFile, expectedOutput, done);
-    });
-
-    it("ignores empty describes", function(done) {
-        var inputFile = "test/fixtures/spec/closedDescribe.feature";
-        var expectedOutput = {
-            "open description" : {
-                "should do something" : "test/fixtures/spec/closedDescribe.feature:4"
-            }
-        };
-        verifyOutput(inputFile, expectedOutput, done);
-    });
-
-    it("handles multiple describes", function(done) {
-        var inputFile = "test/fixtures/spec/full.feature";
-        var expectedOutput = {
-            "first description" : {
-                "should do something" : "test/fixtures/spec/full.feature:2"
-            },
-            "second description nested description" : {
-                "should do something else" : "test/fixtures/spec/full.feature:6"
-            }
-        };
-        verifyOutput(inputFile, expectedOutput, done);
-    });
-
-    it("can handle newlines as a delimiter", function(done) {
-        var inputFile = "test/fixtures/spec/fullNewlineDelimiter.feature";
-        var expectedOutput = {
-            "first description" : {
-                "should do something" : "test/fixtures/spec/fullNewlineDelimiter.feature:2"
-            },
-            "second description nested description" : {
-                "should do something else" : "test/fixtures/spec/fullNewlineDelimiter.feature:6"
-            }
-        };
-        verifyOutput(inputFile, expectedOutput, done);
-    });
-
     it("can parse a real feature", function(done) {
         var inputFile = "test/fixtures/spec/realSpec.feature";
         var expectedOutput = {

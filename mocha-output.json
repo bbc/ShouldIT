@@ -18,7 +18,6 @@
     },
     "Transformation": {
         "transforms a single IT": "PASSED",
-        "transforms a describe": "PASSED",
         "transforms nested describes": "PASSED",
         "ignores empty describes": "PASSED",
         "handles multiple describes": "PASSED",
