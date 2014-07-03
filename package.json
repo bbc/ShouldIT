@@ -1,6 +1,6 @@
 {
   "name": "spec-detective",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A cool way to find out if your spec's in feature files and the like have met expectations.",
   "main": "index.js",
   "scripts": {
