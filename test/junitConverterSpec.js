@@ -8,6 +8,8 @@ describe ("JUnit Converter", function () {
         converter = new Converter("");
         assert.equal(converter.getSuiteName("company.dept.product.api.CoverageApiTest"), "Coverage Api");
         assert.equal(converter.getSuiteName("Company_Dept_Builder_ComponentPresenter_ComponentItemTest"), "Component Item");
+        assert.equal(converter.getSuiteName("PhpUnitExampleTest"), "Php Unit Example");
+        
         assert.equal(converter.getSuiteName("MyAPI"), "My API");
     });
 
