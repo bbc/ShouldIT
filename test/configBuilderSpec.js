@@ -30,9 +30,9 @@ describe ("Config Builder", function () {
         assert.throws(function() {buildConfig(args)}, Error, "A comparison file must be specified");
     });
 
-    it("should be able to add a comma deliminated marker", function() {
-        args[4] = undefined;
-        assert.throws(function() {buildConfig(args)}, Error, "A comparison file must be specified");
-    });
+    // it("should be able to add a comma deliminated marker", function() {
+    //     args[4] = undefined;
+    //     assert.throws(function() {buildConfig(args)}, Error, "A comparison file must be specified");
+    // });
 
 });

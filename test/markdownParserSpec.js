@@ -130,12 +130,29 @@ describe("Markdown parser", function() {
     });
 
     it("matches markers and returns only those specs when a marker is supplied", function(done) {
-        var inputFile = "test/fixtures/markdown/markered.md";
+        var inputFile = "test/fixtures/markdown/markered.md",
+            count = 0;
+
         markdownParser(inputFile, ["mymark"], function(spec) {
-            assert.equal(spec.last, true);
-            assert.equal(spec.skip, true);
-            assert.equal(spec.description, null);
-            done();
+            count++;
+            switch (count) {
+                case 1:
+                    assert.equal(spec.currentTag, "ignoremark");
+                    assert.equal(spec.description, false);
+                    break;
+                case 2:
+                    assert.equal(spec.currentTag, "mymark");
+                    assert.equal(spec.description, "also has a spec on the sub-sub feature");
+                    break;
+                case 3:
+                    assert.equal(spec.currentTag, "mymark");
+                    assert.equal(spec.description, "also has a spec on another sub-sub feature");
+                    break;
+                case 4:
+                    assert.equal(spec.currentTag, false);
+                    assert.equal(spec.description, false);
+                    done();
+            }
         });
     });
 
