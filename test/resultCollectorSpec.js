@@ -27,7 +27,7 @@ describe("Result collector", function() {
     });
 
     it("should fire a callback passing in an object made up of merged objects", function(done) {
-        resultCollector('test/fixtures/multiple_results/*.json', function(data) {
+        resultCollector(['test/fixtures/multiple_results/*.json'], function(data) {
             assert.equal(JSON.stringify(data), JSON.stringify({
                 "Results1": {
                     "should be able to have tests": "PASSED",

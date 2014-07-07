@@ -44,7 +44,7 @@ describe("Transformation", function() {
 
     function verifyOutput(inputFile, expectedOutput, done) {
 
-        featureTransformer(inputFile, function(data) {
+        featureTransformer(inputFile, [], function(data) {
             assert.like(JSON.parse(data), expectedOutput);
             done();
         });

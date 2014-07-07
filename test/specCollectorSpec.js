@@ -14,7 +14,7 @@ describe("Spec collector", function() {
     beforeEach(function() {
         i = 0;
         var object,
-            transformer = function (file, callback) {
+            transformer = function (file, tags, callback) {
                 i++;
                 object = {};
                 object['some data' + i] = 'some value';
@@ -42,12 +42,12 @@ describe("Spec collector", function() {
 
     it("resolves the glob and calls the feature transformer for each file", function() {
 
-        specCollector('test/fixtures/markdown/*.md', function(){});
+        specCollector('test/fixtures/markdown/*.md', [], function(){});
         assert.equal(transformerSpy.callCount, 3);
     });
 
     it("should fire a callback passing in an object made up of merged objects", function(done) {
-        specCollector('test/fixtures/markdown/*.md', function(data) {
+        specCollector('test/fixtures/markdown/*.md', [], function(data) {
             assert.equal(JSON.stringify(data), JSON.stringify({
                 'some data1': 'some value',
                 'some data2': 'some value',
