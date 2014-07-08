@@ -44,8 +44,7 @@
     "mockery": "~1.4.0",
     "sinon": "~1.9.0",
     "mocha-spec-json-reporter": "*",
-    "grunt-contrib-jshint": "^0.10.0",
-    "minimist": "*"
+    "grunt-contrib-jshint": "^0.10.0"
   },
   "dependencies": {
     "xml2js": "~0.4.1",
@@ -53,6 +52,8 @@
     "line-reader": "~0.2.3",
     "colors": "~0.6.2",
     "glob": "~3.2.9",
-    "jsonfile": "~1.1.1"
+    "jsonfile": "~1.1.1",
+    "minimist": "~0.2.0",
+    "gaze": "~0.6.4"
   }
 }
