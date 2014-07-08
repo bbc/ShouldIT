@@ -6,3 +6,4 @@ test/fixtures/test-output/tmp.jsonspec-file.json
 *.iml
 .idea
 junit-output.xml
+results-file.json
