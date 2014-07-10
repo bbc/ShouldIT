@@ -1,5 +1,6 @@
 var buildConfig = require("../lib/configBuilder"),
-    assert = require('assert');
+    assert = require('assert'),
+    fs = require('fs');
 
 
 describe ("Config Builder", function () {
@@ -38,6 +39,21 @@ describe ("Config Builder", function () {
     it("should be turn results into an array", function() {
         args[3] = "--results=richard,john";
         assert.deepEqual(buildConfig(args).results, ['richard', 'john']);
+    });
+
+    it("should be able to read config from a default file", function() {
+        var data = { specs: "spec-file-specs", results: "spec-file-results"};
+        fs.writeFileSync('spec-detective.conf.json', JSON.stringify(data));
+        assert.equal(buildConfig(['node', '/mocha']).specs, "spec-file-specs");
+        assert.equal(buildConfig(['node', '/mocha']).results, "spec-file-results");
+        fs.unlinkSync('spec-detective.conf.json');
+    });
+
+    it("should be able to read config from a specified file", function() {
+        var data = { specs: "myfile-specs", results: "myfile-results"};
+        fs.writeFileSync('myfile.json', JSON.stringify(data));
+        assert.equal(buildConfig(['node', '/mocha', '--config=myfile.json']).specs, "myfile-specs");
+        fs.unlinkSync('myfile.json');
     });
 
 });
