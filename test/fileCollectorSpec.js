@@ -11,7 +11,7 @@ describe("File Collector", function() {
         });
     });
 
-    describe("input files contents", function(){
+    describe("Input files contents", function(){
         it("should be that of the feature spec", function(done) {
             var inputFile = files()[0];
             var comparisonFile = files()[1];
@@ -22,7 +22,7 @@ describe("File Collector", function() {
         });
     });
 
-    describe("second files contents", function(){
+    describe("Second files contents", function(){
         it("should be that of the feature spec", function(done) {
             var inputFile = files()[0];
             var comparisonFile = files()[1];

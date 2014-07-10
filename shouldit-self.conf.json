@@ -1,0 +1,6 @@
+{
+    "specs": "specs/*.feature.md",
+    "results": "mocha-output.json",
+    "watch": true,
+    "hint": false
+}

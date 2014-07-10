@@ -7,3 +7,4 @@ test/fixtures/test-output/tmp.jsonspec-file.json
 .idea
 junit-output.xml
 results-file.json
+mocha-output.json

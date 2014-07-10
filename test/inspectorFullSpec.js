@@ -5,7 +5,7 @@
         fs = require("fs"),
         feature = JSON.parse(fs.readFileSync("test/fixtures/results/results-example.json",'utf8'));
 
-    describe("Inspector full", function() {
+    describe("Inspector Full", function() {
         it("should match top level specs", function() {
              var expected = [
                 {"spec 1": "test/fixtures/spec/multiIt.feature:1"},

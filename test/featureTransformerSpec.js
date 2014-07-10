@@ -29,7 +29,7 @@ describe("Transformation", function() {
         verifyOutput(inputFile, expectedOutput, done);
     });
 
-    describe("parsing markdown", function() {
+    describe("Parsing Markdown", function() {
 
         it("can parse a markdown file", function(done) {
             var inputFile = "test/fixtures/markdown/describe.md";

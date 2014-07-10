@@ -5,7 +5,7 @@ var JunitXmlWriter = require('../lib/junitXmlWriter'),
     parseString = require('xml2js').parseString;
 
 
-describe("junit XML writer", function () {
+describe("JUnit XML writer", function () {
     var xmlWriter;
 
     beforeEach(function () {
@@ -15,7 +15,7 @@ describe("junit XML writer", function () {
         xmlWriter = new JunitXmlWriter();
     });
 
-    describe("counting the specs", function() {
+    describe("Spec Counting", function() {
 
 
         it("specifies the correct number of tests in a suite", function(done) {
@@ -118,7 +118,6 @@ describe("junit XML writer", function () {
 
         });
     });
-
 
     function responseObject() {
         return {
