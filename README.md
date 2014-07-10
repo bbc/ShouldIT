@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/mackstar/spec-detective.png?branch=master)](http://travis-ci.org/mackstar/spec-detective)
+
 # Spec Detective
 
 This is a BDD tool for checking and specking tests against beautiful looking feature files written in MarkDown.
