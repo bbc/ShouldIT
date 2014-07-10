@@ -6,6 +6,7 @@ node_js:
 
 script:
   - grunt
+  - ./bin/spec-detective --config=shouldit-self.conf.json
 
 notifications:
   email: false
