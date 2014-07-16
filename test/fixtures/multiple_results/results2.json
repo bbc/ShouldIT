@@ -1,8 +1,0 @@
-{
-    "Results1": {
-        "should be able to merge tests": "PASSED"
-    },
-    "Results2": {
-        "should be able to other context based tests": "PASSED"
-    }
-}

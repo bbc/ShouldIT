@@ -1,5 +1,0 @@
-{
-    "describe something" : {
-        "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
-    }
-}

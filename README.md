@@ -1,121 +1,29 @@
-[![Build Status](https://secure.travis-ci.org/mackstar/spec-detective.png?branch=master)](http://travis-ci.org/mackstar/spec-detective)
+# Foundation Compass Template
 
-# Spec Detective
+The easiest way to get started with Foundation + Compass.
 
-This is a BDD tool for checking and specking tests against beautiful looking feature files written in MarkDown.
+## Requirements
 
-### How it works...
+  * Ruby 1.9+
+  * [Node.js](http://nodejs.org)
+  * [compass](http://compass-style.org/): `gem install compass`
+  * [bower](http://bower.io): `npm install bower -g`
 
-Rather than this tool driving your tests it is a test output parser which means you can test natively in various programming languages freely. This tool will watch for the test output files or feature file to be saved at which point shows you what specs have and haven't been implemented. 
+## Quickstart
 
-## The Feature File
+  * [Download this starter compass project and unzip it](https://github.com/zurb/foundation-compass-template/archive/master.zip)
+  * Run `bower install` to install the latest version of Foundation
+  
+Then when you're working on your project, just run the following command:
 
-You can write feature files in markdown. You can add any information you want in any way to describe your features. However adding the following style of syntax.
-
-```
-# My Feature
-
-This can contain explanations and other details about your feature
-
-## My Context
-
-+ IT should have a test that passes
-- IT may not have a test that is skipped
-
-## My Other Context
-
-+ IT should also have other tests passing in other contexts
-    - You can add other ignored meta-data
-```
-## Using Javascript Tests
-
-This tool particularly likes Javascript testing frameworks (Jasmine or Mocha). 
-
-The above specks you can write in a JS test as follows:
-
-
-```javascript
-describe("My Feature", function () {
-    describe("My Context", function () {
-        it("should have a test that passes", function () {
-            ...
-        });
-    });
-    describe("My Other Context", function () {
-        it("should also have other tests passing in other contexts", function () {
-            ...
-        });
-    });
-});
+```bash
+compass watch
 ```
 
-### Test output files
+## Upgrading
 
-#### Jasmine/Karma
+If you'd like to upgrade to a newer version of Foundation down the road just run:
 
-You can get the test output in a format that `spec-detective` understands by using a custom Karma reporter called `karma-spec-json-reporter`. This is an NPM package that can be [found here](https://www.npmjs.org/package/karma-spec-json-reporter). 
-
-Please follow the instructions there to install it.
-
-#### Mocha
-
-Similarly to Karma there is a `mocha-spec-json-reporter`. This is also an NPM package that can be [found here](https://www.npmjs.org/package/mocha-spec-json-reporter).
-
-### Using JUnit output
-
-Take the following test written in Java
-```java
-package com.example.foo;
-
-import org.junit.Test;
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.junit.Assert.assertTrue;
-
-/**
- * Tests for {@link Foo}.
- */
-public class ContextSubcontextTest {
-
-    @Test
-    public void shouldAlwaysPass() {
-        assertTrue("failure - should be true", true);
-    }
-
-}
+```bash
+bower update
 ```
-This will then output JUnitXML similar to the below:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.foo.ContextSubcontextTest" time="0.005" tests="1" errors="0" skipped="0" failures="0">
-  <properties>
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-  </properties>
-  <testcase name="shouldAlwaysPass" classname="com.example.foo.ContextSubcontextTest" time="0"/>
-</testsuite>
-```
-This we can then line up to a feature file that looks like the following.
-
-```
-# Context
-
-## Subscontext
-
-+ IT should always pass
-```
-So you can also use anything that also outputs similar JUnitXML including PHPUnit and the likes.
-
-## Running Spec-Detective
- 
-When you have output files available you can do a comparison run using the following command
-```
-./node_modules/spec-detective/bin/spec-detective "path-to-features/*.md" "path-to-json/*.json,path-to-junit/*.xml"
-```
-
-You will then see some pretty output and a `junit-output.xml` file that will give you a coverage summary.
-
-# Example app
-
-If it is easier to a working example please have a look at [this sample app](https://github.com/mackstar/ShouldIt-Example).
