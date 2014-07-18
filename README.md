@@ -107,15 +107,15 @@ This we can then line up to a feature file that looks like the following.
 ```
 So you can also use anything that also outputs similar JUnitXML including PHPUnit and the likes.
 
-## Running Spec-Detective
+## Running ShouldIT
  
 When you have output files available you can do a comparison run using the following command
 ```
-./node_modules/spec-detective/bin/spec-detective "path-to-features/*.md" "path-to-json/*.json,path-to-junit/*.xml"
+./node_modules/shouldit/bin/shouldit --specs="path-to-features/*.md" --results="path-to-json/*.json,path-to-junit/*.xml"
 ```
 
 You will then see some pretty output and a `junit-output.xml` file that will give you a coverage summary.
 
 # Example app
 
-If it is easier to a working example please have a look at [this sample app](https://github.com/mackstar/ShouldIt-Example).
+If it is easier to a working example please have a look at [this sample app](git@github.com:bbc-sport/ShouldIT.git)
