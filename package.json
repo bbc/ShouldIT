@@ -1,5 +1,5 @@
 {
-  "name": "spec-detective",
+  "name": "shouldit",
   "version": "0.1.5",
   "description": "A cool way to find out if your spec's in feature files and the like have met expectations.",
   "main": "index.js",
@@ -8,11 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "detect": "./bin/spec-detective"
+    "detect": "./bin/shouldit"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mackstar/spec-detective.git"
+    "url": "git@github.com:bbc-sport/ShouldIT.git"
   },
   "keywords": [
     "spec",
@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mackstar/spec-detective/issues"
+    "url": "https://github.com/bbc-sport/ShouldIT/issues"
   },
   "devDependencies": {
     "grunt-cli": "~0.1.8",
