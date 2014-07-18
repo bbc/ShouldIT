@@ -8,8 +8,9 @@ title:  "ShouldIT - Installation"
 
 Installing is as easy as:
 
-```
+```bash
     sudo npm install -g spec-detective
 ```
 
-It might be prudent to run in globally
+## Configuration file
+
