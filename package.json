@@ -3,7 +3,6 @@
   "version": "0.1.5",
   "description": "A cool way to find out if your spec's in feature files and the like have met expectations.",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,9 +23,7 @@
   ],
   "author": "Richard McIntyre",
   "contributors": [
-    {
-      "name": "James Ruston"
-    }
+    "James Ruston"
   ],
   "license": "MIT",
   "bugs": {
@@ -56,5 +53,9 @@
     "jsonfile": "~1.1.1",
     "minimist": "~0.2.0",
     "gaze": "~0.6.4"
+  },
+  "homepage": "https://github.com/bbc-sport/ShouldIT",
+  "directories": {
+    "test": "test"
   }
 }
