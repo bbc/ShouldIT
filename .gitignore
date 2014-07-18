@@ -8,3 +8,5 @@ test/fixtures/test-output/tmp.jsonspec-file.json
 junit-output.xml
 results-file.json
 mocha-output.json
+_site/
+npm-debug.log
