@@ -43,10 +43,10 @@ describe ("Config Builder", function () {
 
     it("should be able to read config from a default file", function() {
         var data = { specs: "spec-file-specs", results: "spec-file-results"};
-        fs.writeFileSync('spec-detective.conf.json', JSON.stringify(data));
+        fs.writeFileSync('shouldit.conf.json', JSON.stringify(data));
         assert.equal(buildConfig(['node', '/mocha']).specs, "spec-file-specs");
         assert.equal(buildConfig(['node', '/mocha']).results, "spec-file-results");
-        fs.unlinkSync('spec-detective.conf.json');
+        fs.unlinkSync('shouldit.conf.json');
     });
 
     it("should be able to read config from a specified file", function() {
