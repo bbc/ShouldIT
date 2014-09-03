@@ -13,3 +13,31 @@
         padding-bottom: 10px;
     }
 }
+
+
+pre {
+    border: none;
+    padding: 5px;
+    background-color: #f7f7f7;
+    overflow: scroll;
+}
+
+code {
+    border: none;
+    background-color: #f7f7f7;
+}
+
+h1, h2, h3, h4, h5, h6, .side-nav a {
+    font-family: 'Asap', sans-serif;
+    font-weight: 700;
+    color: #003366;
+}
+
+.side-nav li {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.side-nav a{
+    font-size: 1.4em;
+}
