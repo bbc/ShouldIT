@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Should IT? - The programming language agnostic BDD framework.</title>
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <a href="/">
+        <img src="/img/logo.png" />
+      </a>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="https://github.com/bbc-sport/ShouldIT">Github</a></li>
+      <li class="divider"></li>
+      <li><a href="/docs/installation.html">Docs</a></li>
+      <li class="divider"></li>
+      <li><a href="https://github.com/bbc-sport/ShouldIT-Examples">ShouldIT Examples</a></li>
+    </ul>
+
+
+  </section>
+</nav>
+  
+<div class="row">
+  <div class="large-3 columns">
+    <ul class="side-nav">
+      <li><a href="/docs/installation.html">Installation</a></li>
+      <li><a href="/docs/options.html">Options</a></li>
+      <li><a href="/docs/test-output.html">Languages</a></li>
+      <li><a href="/docs/feature-files.html">Writing Feature Files</a></li>
+    </ul>
+  </div>
+  <div class="large-9 columns">
+    <h1>Options</h1>
+
+<p>The following options can be either added as arguments. To see a list of the supported arguments type:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">    shouldit --h
+</code></pre></div>
+<h2>List of options</h2>
+
+<h3>config</h3>
+
+<blockquote>
+<p>default: shouldit.conf.json</p>
+</blockquote>
+
+<p>The location of your config file. </p>
+
+<h3>watch</h3>
+
+<blockquote>
+<p>default: false</p>
+</blockquote>
+
+<p>Starts ShoultIT? in watch mode. This means it will watch the file system for changes in either the spec files or test result files. As soon as any of these files are updated ShouldIT? will run again.</p>
+
+<h3>specs</h3>
+
+<blockquote>
+<p>required</p>
+</blockquote>
+
+<p>Tells ShouldIT? where to look for feature files. E.g <code>specs/*.md</code> When adding this through the command instead of the config file this might need to be in quotation marks.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">    shouldit --specs=&quot;specs/*.md&quot;
+</code></pre></div>
+<h3>results</h3>
+
+<blockquote>
+<p>required</p>
+</blockquote>
+
+<p>This is where the test result files are to be found. The files can be in a mixture of json files that might look something like the following:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{
+    &quot;Discussion&quot;: {
+        &quot;should be interesting&quot;: &quot;FAILED&quot;
+    },
+    &quot;My Feature My context&quot;: {
+        &quot;should have another passing test&quot;: &quot;PASSED&quot;
+    }
+}
+
+</code></pre></div>
+<p>Or JUnit XML files.</p>
+
+<h3>hint</h3>
+
+<blockquote>
+<p>Values: <code>javascript</code>, <code>rspec</code>, <code>php</code>, <code>java</code></p>
+</blockquote>
+
+<p>At the moment when setting the value of hint to one of the above available hint languages ShouldIT? will prompt you the next test you should write. This will make writing your test somewhat easier.</p>
+
+  </div>
+</div>
+ 
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

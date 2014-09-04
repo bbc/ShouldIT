@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Should IT? - The programming language agnostic BDD framework.</title>
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <a href="/">
+        <img src="/img/logo.png" />
+      </a>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="https://github.com/bbc-sport/ShouldIT">Github</a></li>
+      <li class="divider"></li>
+      <li><a href="/docs/installation.html">Docs</a></li>
+      <li class="divider"></li>
+      <li><a href="https://github.com/bbc-sport/ShouldIT-Examples">ShouldIT Examples</a></li>
+    </ul>
+
+
+  </section>
+</nav>
+  
+<div class="row">
+  <div class="large-3 columns">
+    <ul class="side-nav">
+      <li><a href="/docs/installation.html">Installation</a></li>
+      <li><a href="/docs/options.html">Options</a></li>
+      <li><a href="/docs/test-output.html">Languages</a></li>
+      <li><a href="/docs/feature-files.html">Writing Feature Files</a></li>
+    </ul>
+  </div>
+  <div class="large-9 columns">
+    <h1>Test Output</h1>
+
+<p>There currently 2 formats of test output that &#39;ShoultIT?&#39; can read to match with your feature files. <code>JUnit XML</code> and a JSON pritriority format that looks something like the following.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{
+    &quot;Discussion&quot;: {
+        &quot;should be interesting&quot;: &quot;FAILED&quot;
+    },
+    &quot;My Feature My context&quot;: {
+        &quot;should have another passing test&quot;: &quot;FAILED&quot;
+    }
+}
+</code></pre></div>
+<p>This format is most convenient when using JavaScript for your testing.</p>
+
+<h1>Languages</h1>
+
+<h2>Ruby</h2>
+
+<p>&#39;ShouldIT?&#39; works awesomely with RSpec. In order to get a JUnit XML format that ShouldIT? understands you need to install a custom formatter. Add the following to your Gemfile.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">gem 'rspec_junit_formatter', :git =&gt; 'https://github.com/mackstar/rspec_junit_formatter.git'
+</code></pre></div>
+<p>Then when you run your RSpec tests, do so with:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">bundle install
+bundle exec rspec --format RspecJunitFormatter  --out rspec.xml
+</code></pre></div>
+<h2>JavaScript</h2>
+
+<p>&#39;ShouldIT?&#39; has full support for <code>Jasmine</code> and <code>Mocha</code> test frameworks. Both of of these can output <code>JSON</code> data that &#39;ShouldIT?&#39; understands. </p>
+
+<h3>Jasmine</h3>
+
+<p>In order to use Jasmine, please install the <a href="https://www.npmjs.org/package/karma-spec-json-reporter">Karma Spec JSON Reporter</a> and have Karma drive your tests for you.</p>
+
+<p>Please see installation instructions on the link above.</p>
+
+<h3>Mocha</h3>
+
+<p>Similarly for mocha you can install the <a href="https://www.npmjs.org/package/mocha-spec-json-reporter">Mocha Spec JSON Reporter</a>.</p>
+
+<p>To install this run:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo npm -g install mocha-spec-json-reporter
+</code></pre></div>
+<p>Running your tests can then produce &#39;ShouldIT?&#39; friendly output:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">mocha -R mocha-spec-json-reporter
+</code></pre></div>
+<h2>PHP</h2>
+
+<h3>PHPUnit</h3>
+
+<p>&#39;ShouldIT?&#39; Supports PHPUnit straight out of the box.</p>
+
+<h2>Java</h2>
+
+<h2>Others</h2>
+
+  </div>
+</div>
+ 
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
