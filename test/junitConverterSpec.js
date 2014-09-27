@@ -18,6 +18,7 @@ describe ("JUnit Converter", function () {
         assert.equal(converter.getTestName("testInstantiation"), "instantiation");
         assert.equal(converter.getTestName("getReturnsWith400StatusIfIdParameterIsUndefined"), "get returns with 400 status if id parameter is undefined");
         assert.equal(converter.getTestName("shouldBeAbleToAddAnItemToACart"), "should be able to add an item to a cart");
+        assert.equal(converter.getTestName("it_is_initializable"), "is initializable");
     });
 
     it("should be able parse a javaservices JUnit file", function(){
