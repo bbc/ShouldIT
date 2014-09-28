@@ -41,4 +41,20 @@ describe("Template Renderer", function() {
 
         assert.equal(result, expected);
     });
+
+    it("should be able to render a phpspec template", function() {
+        var result = templateRenderer("phpspec", "The Main Feature", "should do something nice"),
+            expected = '<?php\n\n' +
+                'use PhpSpec\\ObjectBehavior;\n' +
+                'use Prophecy\\Argument;\n\n' +
+                'class TheMainFeatureSpec extends ObjectBehavior\n' +
+                '{\n' +
+                '    function it_should_do_something_nice()\n' +
+                '    {\n' +
+                '        ...\n' +
+                '    }\n' +
+                '}';
+
+        assert.equal(result, expected);
+    });
 });
