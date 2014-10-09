@@ -1,6 +1,6 @@
-[![Build Status](https://secure.travis-ci.org/mackstar/spec-detective.png?branch=master)](http://travis-ci.org/bbc-sport/ShouldIT)
+[![Build Status](https://secure.travis-ci.org/bbc-sport/ShouldIT.png?branch=master)](http://travis-ci.org/bbc-sport/ShouldIT)
 
-# Spec Detective
+# ShouldIT?
 
 This is a BDD tool for checking and specking tests against beautiful looking feature files written in MarkDown.
 
