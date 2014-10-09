@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/mackstar/spec-detective.png?branch=master)](http://travis-ci.org/mackstar/spec-detective)
+[![Build Status](https://secure.travis-ci.org/mackstar/spec-detective.png?branch=master)](http://travis-ci.org/bbc-sport/ShouldIT)
 
 # Spec Detective
 
