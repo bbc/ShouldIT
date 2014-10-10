@@ -9,6 +9,7 @@
   "bin": {
     "shouldit": "./bin/shouldit"
   },
+  "preferGlobal": "true",
   "repository": {
     "type": "git",
     "url": "git@github.com:bbc-sport/ShouldIT.git"
