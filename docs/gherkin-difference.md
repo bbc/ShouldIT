@@ -44,6 +44,6 @@ For example the user adds a pair of "fashionable shoes" at the price of 34.95
     + IT displays the product price and quantity
 ```
 
-## Basket
-
 Although these are similar examples and both handle the scenario in similar levels of detail. ShouldIT? separates the requirements so that they are easier to distinguish. There is more freedom to build up the tests as the developer decides rather than the framework deciding.
+
+There is also a higher priority given to context meaning the developer can get to the details quicker as they stand out more - particularly when the markdown has been parsed.
