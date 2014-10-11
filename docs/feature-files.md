@@ -62,6 +62,7 @@ If you want to skip a test for any reason just add a `-`
 ```
 
 Your JavaScript test might then look something like:
+
 ```
 describe("My Feature My Context", function() {
     it("Should have a feature that works", function() {

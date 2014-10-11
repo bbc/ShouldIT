@@ -1,3 +1,9 @@
+---
+layout: default
+title:  "ShouldIT - Difference in Gherkin and ShouldIT?"
+
+---
+
 # What is the difference between ShouldIT? and Cucumber/Gherkin based BDD tools
 
 What Gherkin based BDD tools do well is take a user journey or story and make that the focal point of their feature files. 
