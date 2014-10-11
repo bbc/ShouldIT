@@ -57,6 +57,6 @@ Or JUnit XML files.
 
 ### hint
 
-> Values: `javascript`, `rspec`, `php`, `java`
+> Values: `javascript`, `rspec`, `php`, `java`, `phpspec`
 
 At the moment when setting the value of hint to one of the above available hint languages ShouldIT? will prompt you the next test you should write. This will make writing your test somewhat easier.
