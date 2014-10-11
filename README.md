@@ -37,7 +37,7 @@ This can contain explanations and other details about your feature
 
 This tool particularly likes Javascript testing frameworks (Jasmine or Mocha). 
 
-The above specks you can write in a JS test as follows:
+The above specs you can write in a JS test as follows:
 
 
 ```javascript
@@ -59,7 +59,7 @@ describe("My Feature", function () {
 
 #### Jasmine/Karma
 
-You can get the test output in a format that `spec-detective` understands by using a custom Karma reporter called `karma-spec-json-reporter`. This is an NPM package that can be [found here](https://www.npmjs.org/package/karma-spec-json-reporter). 
+You can get the test output in a format that `ShouldIT?` understands by using a custom Karma reporter called `karma-spec-json-reporter`. This is an NPM package that can be [found here](https://www.npmjs.org/package/karma-spec-json-reporter). 
 
 Please follow the instructions there to install it.
 
