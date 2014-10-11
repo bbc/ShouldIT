@@ -2,7 +2,13 @@
 
 # ShouldIT?
 
-This is a BDD tool for checking and specking tests against beautiful looking feature files written in MarkDown.
+This is a BDD tool for checking and spec-ing tests against beautiful looking feature files written in MarkDown.
+
+## Getting Started with Examples
+
+The quickest way to get going and have a flavour of how this works is through the examples.
+
+[ShouldIT? Example Repository](https://github.com/bbc-sport/ShouldIT-Examples)
 
 ### How it works...
 
@@ -115,7 +121,3 @@ When you have output files available you can do a comparison run using the follo
 ```
 
 You will then see some pretty output and a `junit-output.xml` file that will give you a coverage summary.
-
-# Example app
-
-If it is easier to a working example please have a look at [this sample app](git@github.com:bbc-sport/ShouldIT.git)
