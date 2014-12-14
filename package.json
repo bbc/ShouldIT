@@ -53,7 +53,7 @@
     "glob": "~3.2.9",
     "jsonfile": "~1.1.1",
     "minimist": "~0.2.0",
-    "gaze": "~0.6.4"
+    "gaze": "~0.5.1"
   },
   "homepage": "https://github.com/bbc-sport/ShouldIT",
   "directories": {
