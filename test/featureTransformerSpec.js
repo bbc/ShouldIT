@@ -35,7 +35,12 @@ describe("Transformation", function() {
             var inputFile = "test/fixtures/markdown/describe.md";
             var expectedOutput = {
                 "a description" : {
-                    "should do something" : "test/fixtures/markdown/describe.md:2"
+                    "_parents": [
+                        "a description"
+                    ],
+                    "specs": {
+                        "should do something" : "test/fixtures/markdown/describe.md:2"
+                    }
                 }
             };
             verifyOutput(inputFile, expectedOutput, done);

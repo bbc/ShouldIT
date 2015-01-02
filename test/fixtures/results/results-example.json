@@ -1,17 +1,26 @@
 {
     "open description": {
-        "should do something": "test/fixtures/spec/closedDescribeNewline.feature:4"
+        "specs": {
+            "should do something": "test/fixtures/spec/closedDescribeNewline.feature:4"
+        }
     },
     "a description another description": {
-        "should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"
+        "specs": {
+            "should match 2 descriptions": "test/fixtures/spec/twoDescribes.feature:3"
+        }
     },
-    "should do something": "test/fixtures/spec/exampleSpecLc.feature:1",
     "first description": {
-        "should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"
+        "specs": {
+            "should do something": "test/fixtures/spec/fullNewlineDelimiter.feature:2"
+        }
+
     },
     "second description nested description": {
-        "should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"
+        "specs": {
+            "should do something else": "test/fixtures/spec/fullNewlineDelimiter.feature:6"
+        }
     },
+    "should do something": "test/fixtures/spec/exampleSpecLc.feature:1",
     "spec 1": "test/fixtures/spec/multiIt.feature:1",
     "spec 2": "test/fixtures/spec/multiIt.feature:2",
     "should have a tab title of \"More Live\".": "test/fixtures/spec/realSpec.feature:24",

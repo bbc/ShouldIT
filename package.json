@@ -48,14 +48,15 @@
     "underscore": "1.6.0"
   },
   "dependencies": {
-    "xml2js": "~0.4.1",
-    "xmlbuilder": "~2.1.0",
-    "line-reader": "~0.2.3",
     "colors": "~0.6.2",
+    "gaze": "~0.5.1",
     "glob": "~3.2.9",
     "jsonfile": "~1.1.1",
+    "line-reader": "~0.2.3",
     "minimist": "~0.2.0",
-    "gaze": "~0.5.1"
+    "xml2js": "~0.4.1",
+    "xmlbuilder": "~2.1.0",
+    "yamljs": "^0.2.1"
   },
   "homepage": "https://github.com/bbc-sport/ShouldIT",
   "directories": {
