@@ -51,5 +51,14 @@ describe("View Builder", function() {
         assert.deepEqual(view.links[1], {source: 1, target: 2});
     });
 
+    it("should supply depths", function() {
+        input['A Description I am nested']._parents.push('And More Deeply Nested');
+
+        var view = viewBuilder.build(input);
+        assert.equal(view.nodes[0].depth, 0);
+        assert.equal(view.nodes[1].depth, 1);
+        assert.equal(view.nodes[2].depth, 2);
+    });
+
 
 });
