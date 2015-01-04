@@ -63,13 +63,13 @@ d3.json("graph.json", function(error, json) {
 
 // Color leaf nodes orange, and packages white or blue.
 function color(d) {
-  return "#3182bd";
+  return d.depth === 0 ? "#3182bd" : "#c6dbef"; //: d.children ? "#c6dbef" : "#fd8d3c";
 }
 
   node.append("circle")
       .attr("class", "node")
       .attr("r", 12)
-      .style("fill", function(d) { return 'green'; })
+      .style("fill", color)
       .on("dblclick", dblclick)
       .call(force.drag);
 
