@@ -1,6 +1,21 @@
 {
     "nodes": [
         {
+            "name": "Transformation",
+            "shoulds": {
+                "transforms a single IT": "specs/transformation.feature.md:3",
+                "can parse a real feature": "specs/transformation.feature.md:4"
+            },
+            "depth": 0
+        },
+        {
+            "name": "Parsing Markdown",
+            "shoulds": {
+                "can parse a markdown file": "specs/transformation.feature.md:8"
+            },
+            "depth": 1
+        },
+        {
             "name": "Config Builder",
             "shoulds": {
                 "should be able to take a set input file": "specs/config-builder.feature.md:3",
@@ -11,72 +26,29 @@
                 "should be turn results into an array": "specs/config-builder.feature.md:8",
                 "should be able to read config from a default file": "specs/config-builder.feature.md:9",
                 "should be able to read config from a specified file": "specs/config-builder.feature.md:10"
-            }
+            },
+            "depth": 0
         },
         {
             "name": "File Collector",
             "shoulds": {
                 "should take 2 add them to a list": "specs/file-collector.feature.md:3"
-            }
+            },
+            "depth": 0
         },
         {
             "name": "Input files contents",
             "shoulds": {
                 "should be that of the feature spec": "specs/file-collector.feature.md:7"
-            }
+            },
+            "depth": 1
         },
         {
             "name": "Second files contents",
             "shoulds": {
                 "should be that of the feature spec": "specs/file-collector.feature.md:11"
-            }
-        },
-        {
-            "name": "Inspector",
-            "shoulds": {
-                "should tell when a match is found": "specs/inspector.feature.md:3",
-                "should tell when a match is not found": "specs/inspector.feature.md:4",
-                "should tell when a non suite-ed match is found": "specs/inspector.feature.md:5",
-                "should handle the spec not matching the output": "specs/inspector.feature.md:6",
-                "should handle multiple ITS inside a describe": "specs/inspector.feature.md:7",
-                "should tell when a match is found but has a failing test": "specs/inspector.feature.md:8",
-                "should tell when a nested match is found": "specs/inspector.feature.md:9"
-            }
-        },
-        {
-            "name": "Full",
-            "shoulds": {
-                "should match top level specs": "specs/inspector.feature.md:12",
-                "should match first level specs": "specs/inspector.feature.md:13",
-                "should match second level specs": "specs/inspector.feature.md:14",
-                "should match nested and non nested specs": "specs/inspector.feature.md:15"
-            }
-        },
-        {
-            "name": "JUnit Converter",
-            "shoulds": {
-                "should be able to normalise the testsuite name": "specs/junit.feature.md:4",
-                "should be able to normalise the testcase name": "specs/junit.feature.md:5",
-                "should be able parse a javaservices JUnit file": "specs/junit.feature.md:6",
-                "should be able parse a nexted JUnit file that has failures": "specs/junit.feature.md:7"
-            }
-        },
-        {
-            "name": "JUnit XML writer",
-            "shoulds": {
-                "creates a passing testcase for a spec": "specs/junit.feature.md:11",
-                "handles multiple passing specs": "specs/junit.feature.md:12",
-                "adds a skipped node for pending specs": "specs/junit.feature.md:13",
-                "adds a failure node for failing specs": "specs/junit.feature.md:14",
-                "handles a spec that isnt nested in a describe": "specs/junit.feature.md:15"
-            }
-        },
-        {
-            "name": "Spec Counting",
-            "shoulds": {
-                "specifies the correct number of tests in a suite": "specs/junit.feature.md:19",
-                "counts the number of specs including failing and pending": "specs/junit.feature.md:20"
-            }
+            },
+            "depth": 1
         },
         {
             "name": "Markdown parser",
@@ -93,26 +65,53 @@
                 "skips everything after a skip": "specs/markdown-parser.feature.md:12",
                 "strips its from the matched spec": "specs/markdown-parser.feature.md:13",
                 "matches markers and returns only those specs when a marker is supplied": "specs/markdown-parser.feature.md:14"
-            }
+            },
+            "depth": 0
+        },
+        {
+            "name": "Inspector",
+            "shoulds": {
+                "should tell when a match is found": "specs/inspector.feature.md:3",
+                "should tell when a match is not found": "specs/inspector.feature.md:4",
+                "should tell when a non suite-ed match is found": "specs/inspector.feature.md:5",
+                "should handle the spec not matching the output": "specs/inspector.feature.md:6",
+                "should handle multiple ITS inside a describe": "specs/inspector.feature.md:7",
+                "should tell when a match is found but has a failing test": "specs/inspector.feature.md:8",
+                "should tell when a nested match is found": "specs/inspector.feature.md:9"
+            },
+            "depth": 0
+        },
+        {
+            "name": "Full",
+            "shoulds": {
+                "should match top level specs": "specs/inspector.feature.md:12",
+                "should match first level specs": "specs/inspector.feature.md:13",
+                "should match second level specs": "specs/inspector.feature.md:14",
+                "should match nested and non nested specs": "specs/inspector.feature.md:15"
+            },
+            "depth": 1
         },
         {
             "name": "Result collector",
             "shoulds": {
                 "should fire a callback passing in an object made up of merged objects": "specs/others.feature.md:3"
-            }
+            },
+            "depth": 0
         },
         {
             "name": "Spec collector",
             "shoulds": {
                 "resolves the glob and calls the feature transformer for each file": "specs/others.feature.md:6",
                 "should fire a callback passing in an object made up of merged objects": "specs/others.feature.md:7"
-            }
+            },
+            "depth": 0
         },
         {
             "name": "Spitter Outer",
             "shoulds": {
                 "colorise output into an array of console messages": "specs/others.feature.md:11"
-            }
+            },
+            "depth": 0
         },
         {
             "name": "Template Renderer",
@@ -120,33 +119,55 @@
                 "should be able to render a JS template": "specs/others.feature.md:14",
                 "should be able to render a java template": "specs/others.feature.md:15",
                 "should be able to render a php template": "specs/others.feature.md:16"
-            }
+            },
+            "depth": 0
         },
         {
-            "name": "Transformation",
-            "shoulds": {
-                "transforms a single IT": "specs/transformation.feature.md:3",
-                "can parse a real feature": "specs/transformation.feature.md:4"
-            }
+            "name": "JUnit",
+            "shoulds": [],
+            "depth": 0
         },
         {
-            "name": "Parsing Markdown",
+            "name": "Converter",
             "shoulds": {
-                "can parse a markdown file": "specs/transformation.feature.md:8"
-            }
+                "should be able to normalise the testsuite name": "specs/junit.feature.md:4",
+                "should be able to normalise the testcase name": "specs/junit.feature.md:5",
+                "should be able parse a javaservices JUnit file": "specs/junit.feature.md:6",
+                "should be able parse a nexted JUnit file that has failures": "specs/junit.feature.md:7"
+            },
+            "depth": 1
+        },
+        {
+            "name": "XML writer",
+            "shoulds": {
+                "creates a passing testcase for a spec": "specs/junit.feature.md:11",
+                "handles multiple passing specs": "specs/junit.feature.md:12",
+                "adds a skipped node for pending specs": "specs/junit.feature.md:13",
+                "adds a failure node for failing specs": "specs/junit.feature.md:14",
+                "handles a spec that isnt nested in a describe": "specs/junit.feature.md:15"
+            },
+            "depth": 1
+        },
+        {
+            "name": "Spec Counting",
+            "shoulds": {
+                "specifies the correct number of tests in a suite": "specs/junit.feature.md:19",
+                "counts the number of specs including failing and pending": "specs/junit.feature.md:20"
+            },
+            "depth": 2
         }
     ],
     "links": [
         {
-            "source": 1,
-            "target": 2
+            "source": 0,
+            "target": 1
         },
         {
-            "source": 1,
-            "target": 3
+            "source": 3,
+            "target": 4
         },
         {
-            "source": 4,
+            "source": 3,
             "target": 5
         },
         {
@@ -154,8 +175,16 @@
             "target": 8
         },
         {
-            "source": 14,
+            "source": 13,
+            "target": 14
+        },
+        {
+            "source": 13,
             "target": 15
+        },
+        {
+            "source": 15,
+            "target": 16
         }
     ]
 }

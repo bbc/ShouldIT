@@ -110,13 +110,15 @@ function styleClass(d) {
       var title = document.createElement('h2');
       title.innerText = d.name;
       panel.appendChild(title);
+      var list = document.createElement('ul');
       var should;
       for (var key in d.shoulds) {
-        should = document.createElement('div');
-        should.innerHTML = '<div>' + key + '</div>' + '<p>' + d.shoulds[key] + '</p>';
+        should = document.createElement('li');
+        should.innerText = key;
 
-        panel.appendChild(should);
+        list.appendChild(should);
       };
+      panel.appendChild(list);
     }
   }
 
