@@ -6,14 +6,16 @@
                 "transforms a single IT": "specs/transformation.feature.md:3",
                 "can parse a real feature": "specs/transformation.feature.md:4"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Transformation"
         },
         {
             "name": "Parsing Markdown",
             "shoulds": {
                 "can parse a markdown file": "specs/transformation.feature.md:8"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "Transformation Parsing Markdown"
         },
         {
             "name": "Config Builder",
@@ -27,28 +29,32 @@
                 "should be able to read config from a default file": "specs/config-builder.feature.md:9",
                 "should be able to read config from a specified file": "specs/config-builder.feature.md:10"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Config Builder"
         },
         {
             "name": "File Collector",
             "shoulds": {
                 "should take 2 add them to a list": "specs/file-collector.feature.md:3"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "File Collector"
         },
         {
             "name": "Input files contents",
             "shoulds": {
                 "should be that of the feature spec": "specs/file-collector.feature.md:7"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "File Collector Input files contents"
         },
         {
             "name": "Second files contents",
             "shoulds": {
                 "should be that of the feature spec": "specs/file-collector.feature.md:11"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "File Collector Second files contents"
         },
         {
             "name": "Markdown parser",
@@ -66,7 +72,8 @@
                 "strips its from the matched spec": "specs/markdown-parser.feature.md:13",
                 "matches markers and returns only those specs when a marker is supplied": "specs/markdown-parser.feature.md:14"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Markdown parser"
         },
         {
             "name": "Inspector",
@@ -79,7 +86,8 @@
                 "should tell when a match is found but has a failing test": "specs/inspector.feature.md:8",
                 "should tell when a nested match is found": "specs/inspector.feature.md:9"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Inspector"
         },
         {
             "name": "Full",
@@ -89,14 +97,16 @@
                 "should match second level specs": "specs/inspector.feature.md:14",
                 "should match nested and non nested specs": "specs/inspector.feature.md:15"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "Inspector Full"
         },
         {
             "name": "Result collector",
             "shoulds": {
                 "should fire a callback passing in an object made up of merged objects": "specs/others.feature.md:3"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Result collector"
         },
         {
             "name": "Spec collector",
@@ -104,14 +114,16 @@
                 "resolves the glob and calls the feature transformer for each file": "specs/others.feature.md:6",
                 "should fire a callback passing in an object made up of merged objects": "specs/others.feature.md:7"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Spec collector"
         },
         {
             "name": "Spitter Outer",
             "shoulds": {
                 "colorise output into an array of console messages": "specs/others.feature.md:11"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Spitter Outer"
         },
         {
             "name": "Template Renderer",
@@ -120,12 +132,14 @@
                 "should be able to render a java template": "specs/others.feature.md:15",
                 "should be able to render a php template": "specs/others.feature.md:16"
             },
-            "depth": 0
+            "depth": 0,
+            "key": "Template Renderer"
         },
         {
             "name": "JUnit",
             "shoulds": [],
-            "depth": 0
+            "depth": 0,
+            "key": "JUnit"
         },
         {
             "name": "Converter",
@@ -135,7 +149,8 @@
                 "should be able parse a javaservices JUnit file": "specs/junit.feature.md:6",
                 "should be able parse a nexted JUnit file that has failures": "specs/junit.feature.md:7"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "JUnit Converter"
         },
         {
             "name": "XML writer",
@@ -146,7 +161,8 @@
                 "adds a failure node for failing specs": "specs/junit.feature.md:14",
                 "handles a spec that isnt nested in a describe": "specs/junit.feature.md:15"
             },
-            "depth": 1
+            "depth": 1,
+            "key": "JUnit XML writer"
         },
         {
             "name": "Spec Counting",
@@ -154,7 +170,12 @@
                 "specifies the correct number of tests in a suite": "specs/junit.feature.md:19",
                 "counts the number of specs including failing and pending": "specs/junit.feature.md:20"
             },
-            "depth": 2
+            "depth": 2,
+            "key": "JUnit XML writer Spec Counting"
+        },
+        {
+            "name": "ShouldIT App",
+            "key": "ShouldIT App"
         }
     ],
     "links": [
@@ -185,6 +206,14 @@
         {
             "source": 15,
             "target": 16
+        },
+        {
+            "source": 17,
+            "target": 3
+        },
+        {
+            "source": 3,
+            "target": 8
         }
     ]
 }
