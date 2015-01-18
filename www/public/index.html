@@ -46,6 +46,8 @@ svg {
   <img src="/images/logo.png" />
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+
 <script>
 
 var width = 960,
@@ -80,7 +82,7 @@ d3.json("graph.json", function(error, json) {
 
 // Color leaf nodes orange, and packages white or blue.
 function color(d) {
-  return d.depth === 0 ? "#3182bd" : "#c6dbef"; //: d.children ? "#c6dbef" : "#fd8d3c";
+  return d.depth === 0 ? d.status : d.status; //: d.children ? "#c6dbef" : "#fd8d3c";
 }
 
 function size(d) {
@@ -114,6 +116,7 @@ function styleClass(d) {
       var should;
       for (var key in d.shoulds) {
         should = document.createElement('li');
+        should.setAttribute("style", "color:" + d.status);
         should.innerText = key;
 
         list.appendChild(should);
