@@ -34,6 +34,15 @@ svg {
   border-bottom: 6px solid #9CC3C2;
 }
 
+.feature-container {
+  width: 920px;
+  float: left;
+  padding: 20px;
+  display: none;
+}
+.close-feature{
+  text-align: right;
+}
 
 .panel {
   float: left;
@@ -72,9 +81,13 @@ svg {
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<div class="feature-container">
+  <div class="close-feature"><a href="#">Close</a></div>
+  <div class="feature"></div>
+</div>
 <script>
-
+var converter = new Showdown.converter();
 var width = 960,
     height = 500
 
@@ -105,18 +118,18 @@ d3.json("graph.json", function(error, json) {
       .attr("class", "node")
       .call(force.drag);
 
-// Color leaf nodes orange, and packages white or blue.
-function color(d) {
-  return d.depth === 0 ? d.status : d.status; //: d.children ? "#c6dbef" : "#fd8d3c";
-}
+  // Color leaf nodes orange, and packages white or blue.
+  function color(d) {
+    return d.depth === 0 ? d.status : d.status; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
 
-function size(d) {
-  return d.depth === 0 ? 15 : 12; //: d.children ? "#c6dbef" : "#fd8d3c";
-}
+  function size(d) {
+    return d.depth === 0 ? 15 : 12; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
 
-function styleClass(d) {
-  return d.depth === 0 ? "node node-parent" : "node"; //: d.children ? "#c6dbef" : "#fd8d3c";
-}
+  function styleClass(d) {
+    return d.depth === 0 ? "node node-parent" : "node"; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
 
   node.append("circle")
       .attr("class", styleClass)
@@ -132,6 +145,7 @@ function styleClass(d) {
 
   function click(d) {
     if (d.shoulds) {
+      $(".should").off();
       var panel = document.getElementsByClassName('panel')[0];
       panel.innerHTML = '';
       var breadcrumb = document.createElement('h3');
@@ -144,13 +158,24 @@ function styleClass(d) {
       var should;
       for (var key in d.shoulds) {
         should = document.createElement('li');
+        should.setAttribute("class", "should");
+        should.setAttribute("data-feature", d.shoulds[key].ref);
         should.setAttribute("style", "color:" + d.status);
         should.innerText = key;
 
         list.appendChild(should);
       };
       panel.appendChild(list);
+      $(".should").on('click', function (){
+        var url = '/feature/' + $(this).data('feature').split(':')[0];
+        $.getJSON(url, function(data) {
+          $( ".feature" ).html( converter.makeHtml(data.feature) );
+          $( ".feature-container" ).show();
+          $( "svg" ).hide();
+        });
+      });
     }
+
   }
 
   force.on("tick", function() {
@@ -160,6 +185,13 @@ function styleClass(d) {
         .attr("y2", function(d) { return d.target.y; });
 
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+});
+
+$(function() {
+  $(".close-feature").on('click', function (){
+    $( ".feature-container" ).hide();
+    $( "svg" ).show();
   });
 });
 
