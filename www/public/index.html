@@ -31,11 +31,36 @@ svg {
 
 .header {
   background-color: #333333;
+  border-bottom: 6px solid #9CC3C2;
 }
+
 
 .panel {
   float: left;
   width: 300px;
+  margin-top: -6px;
+  background-color: #333;
+  color: white;
+  border-left: 6px solid #9CC3C2;
+  border-right: 6px solid #9CC3C2;
+  border-bottom: 6px solid #9CC3C2;
+  padding: 10px;
+}
+
+.panel h3 {
+  color: #9CC3C2;
+  margin: 0;
+}
+.panel h2 {
+  margin: 0;
+}
+.panel ul {
+  padding: 0;
+}
+.panel li {
+  display: block;
+  padding: 8px 0;
+  border-top: 1px dotted #9CC3C2;
 }
 
 
@@ -109,6 +134,9 @@ function styleClass(d) {
     if (d.shoulds) {
       var panel = document.getElementsByClassName('panel')[0];
       panel.innerHTML = '';
+      var breadcrumb = document.createElement('h3');
+      breadcrumb.innerText = d.key;
+      panel.appendChild(breadcrumb);
       var title = document.createElement('h2');
       title.innerText = d.name;
       panel.appendChild(title);
