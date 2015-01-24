@@ -31,29 +31,32 @@
     "url": "https://github.com/bbc-sport/ShouldIT/issues"
   },
   "devDependencies": {
-    "grunt-cli": "~0.1.8",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-shell": "~0.2.2",
-    "grunt-check-modules": "~0.2.0",
-    "mocha": "~1.17.1",
     "chai": "~1.9.0",
-    "underscore": "1.6.0",
     "chai-fuzzy": "1.4.0",
+    "d3": "^3.5.2",
+    "express": "^4.10.6",
+    "grunt-check-modules": "~0.2.0",
+    "grunt-cli": "~0.1.8",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-mocha-test": "~0.9.4",
+    "grunt-shell": "~0.2.2",
+    "mocha": "~1.17.1",
+    "mocha-spec-json-reporter": "*",
     "mockery": "~1.4.0",
     "sinon": "~1.9.0",
-    "mocha-spec-json-reporter": "*",
-    "grunt-contrib-jshint": "^0.10.0"
+    "underscore": "1.6.0"
   },
   "dependencies": {
-    "xml2js": "~0.4.1",
-    "xmlbuilder": "~2.1.0",
-    "line-reader": "~0.2.3",
     "colors": "~0.6.2",
+    "gaze": "~0.5.1",
     "glob": "~3.2.9",
     "jsonfile": "~1.1.1",
+    "line-reader": "~0.2.3",
     "minimist": "~0.2.0",
-    "gaze": "~0.5.1"
+    "xml2js": "~0.4.1",
+    "xmlbuilder": "~2.1.0",
+    "yamljs": "^0.2.1"
   },
   "homepage": "https://github.com/bbc-sport/ShouldIT",
   "directories": {

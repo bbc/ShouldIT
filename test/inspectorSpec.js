@@ -48,12 +48,14 @@
             var expected = responseObject();
             expected.pending = 
             [
-                {"first description": {
-                    "should do something" : 'test/fixtures/spec/full.feature:2'
+                {
+                    "first description": {
+                        "should do something" : 'test/fixtures/spec/full.feature:2'
                     }
                 },
-                {"second description nested description" : {
-                    "should do something else" : "test/fixtures/spec/full.feature:6"
+                {
+                    "second description nested description" : {
+                            "should do something else" : "test/fixtures/spec/full.feature:6"
                     }
                 }
             ];
@@ -62,10 +64,14 @@
             files[0] = 
             {
                 "first description": {
-                    "should do something": "test/fixtures/spec/full.feature:2"
+                    "specs": {
+                        "should do something": "test/fixtures/spec/full.feature:2"
+                    }
                 },
                 "second description nested description": {
-                    "should do something else": "test/fixtures/spec/full.feature:6"
+                    "specs": {
+                        "should do something else": "test/fixtures/spec/full.feature:6"
+                    }
                 }
             };
 
@@ -88,11 +94,15 @@
             files[0] = 
             {
                 "first description": {
-                    "should do something": "test/fixtures/spec/full.feature:2"
+                    "specs": {
+                        "should do something": "test/fixtures/spec/full.feature:2"
+                    }
                 },
                 "second description nested description": {
-                    "should do something else": "test/fixtures/spec/full.feature:6",
-                    "should do a final thing": "test/fixtures/spec/full.feature:7"
+                    "specs": {
+                        "should do something else": "test/fixtures/spec/full.feature:6",
+                        "should do a final thing": "test/fixtures/spec/full.feature:7"
+                    }
                 }
             };
 
@@ -140,7 +150,9 @@
     function filesContent() {
         return [{
             "describe something" : {
-                "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
+                "specs": {
+                    "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
+                }
             }
         },
         {
@@ -153,7 +165,9 @@
     function nestedFilesContent() {
         return [{
             "describe something else" : {
-                "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
+                "specs": {
+                    "should do something" : "test/fixtures/spec/exampleSpec.feature:1"
+                }
             }
         },
         {

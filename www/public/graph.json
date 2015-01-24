@@ -1,0 +1,489 @@
+{
+    "nodes": [
+        {
+            "name": "Transformation",
+            "shoulds": {
+                "transforms a single IT": {
+                    "ref": "specs/transformation.feature.md:3",
+                    "status": "green"
+                },
+                "can parse a real feature": {
+                    "ref": "specs/transformation.feature.md:4",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Transformation",
+            "status": "green"
+        },
+        {
+            "name": "Parsing Markdown",
+            "shoulds": {
+                "can parse a markdown file": {
+                    "ref": "specs/transformation.feature.md:8",
+                    "status": "red"
+                }
+            },
+            "depth": 1,
+            "key": "Transformation Parsing Markdown",
+            "status": "red"
+        },
+        {
+            "name": "Config Builder",
+            "shoulds": {
+                "should be able to take a set input file": {
+                    "ref": "specs/config-builder.feature.md:3",
+                    "status": "green"
+                },
+                "should be able to take a set file to compare to": {
+                    "ref": "specs/config-builder.feature.md:4",
+                    "status": "green"
+                },
+                "should raise an exeption if the input file isnt passed": {
+                    "ref": "specs/config-builder.feature.md:5",
+                    "status": "green"
+                },
+                "should raise an exeption if the comparison file isnt passed": {
+                    "ref": "specs/config-builder.feature.md:6",
+                    "status": "green"
+                },
+                "should be able to add a comma deliminated tag": {
+                    "ref": "specs/config-builder.feature.md:7",
+                    "status": "green"
+                },
+                "should be turn results into an array": {
+                    "ref": "specs/config-builder.feature.md:8",
+                    "status": "green"
+                },
+                "should be able to read config from a default file": {
+                    "ref": "specs/config-builder.feature.md:9",
+                    "status": "green"
+                },
+                "should be able to read config from a specified file": {
+                    "ref": "specs/config-builder.feature.md:10",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Config Builder",
+            "status": "green"
+        },
+        {
+            "name": "File Collector",
+            "shoulds": {
+                "should take 2 add them to a list": {
+                    "ref": "specs/file-collector.feature.md:3",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "File Collector",
+            "status": "green"
+        },
+        {
+            "name": "Input files contents",
+            "shoulds": {
+                "should be that of the feature spec": {
+                    "ref": "specs/file-collector.feature.md:7",
+                    "status": "green"
+                }
+            },
+            "depth": 1,
+            "key": "File Collector Input files contents",
+            "status": "green"
+        },
+        {
+            "name": "Second files contents",
+            "shoulds": {
+                "should be that of the feature spec": {
+                    "ref": "specs/file-collector.feature.md:11",
+                    "status": "green"
+                }
+            },
+            "depth": 1,
+            "key": "File Collector Second files contents",
+            "status": "green"
+        },
+        {
+            "name": "Markdown parser",
+            "shoulds": {
+                "callsback with the first spec found": {
+                    "ref": "specs/markdown-parser.feature.md:3",
+                    "status": "green"
+                },
+                "adds describe that the spec is nested in": {
+                    "ref": "specs/markdown-parser.feature.md:4",
+                    "status": "green"
+                },
+                "replaces the suite if a header is found at the same level": {
+                    "ref": "specs/markdown-parser.feature.md:5",
+                    "status": "green"
+                },
+                "removes any suites that have been closed by a smaller level of header": {
+                    "ref": "specs/markdown-parser.feature.md:6",
+                    "status": "green"
+                },
+                "handles specs defined with a +": {
+                    "ref": "specs/markdown-parser.feature.md:7",
+                    "status": "green"
+                },
+                "handles files with extra returns": {
+                    "ref": "specs/markdown-parser.feature.md:8",
+                    "status": "green"
+                },
+                "skips a file with a chevron on the first line": {
+                    "ref": "specs/markdown-parser.feature.md:9",
+                    "status": "green"
+                },
+                "skips a file with a skip regardless of case": {
+                    "ref": "specs/markdown-parser.feature.md:10",
+                    "status": "green"
+                },
+                "matches skips with no space between the chevron and skip keyword": {
+                    "ref": "specs/markdown-parser.feature.md:11",
+                    "status": "green"
+                },
+                "skips everything after a skip": {
+                    "ref": "specs/markdown-parser.feature.md:12",
+                    "status": "green"
+                },
+                "strips its from the matched spec": {
+                    "ref": "specs/markdown-parser.feature.md:13",
+                    "status": "green"
+                },
+                "matches markers and returns only those specs when a marker is supplied": {
+                    "ref": "specs/markdown-parser.feature.md:14",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Markdown parser",
+            "status": "green"
+        },
+        {
+            "name": "Inspector",
+            "shoulds": {
+                "should tell when a match is found": {
+                    "ref": "specs/inspector.feature.md:3",
+                    "status": "red"
+                },
+                "should tell when a match is not found": {
+                    "ref": "specs/inspector.feature.md:4",
+                    "status": "red"
+                },
+                "should tell when a non suite-ed match is found": {
+                    "ref": "specs/inspector.feature.md:5",
+                    "status": "green"
+                },
+                "should handle the spec not matching the output": {
+                    "ref": "specs/inspector.feature.md:6",
+                    "status": "red"
+                },
+                "should handle multiple ITS inside a describe": {
+                    "ref": "specs/inspector.feature.md:7",
+                    "status": "red"
+                },
+                "should tell when a match is found but has a failing test": {
+                    "ref": "specs/inspector.feature.md:8",
+                    "status": "red"
+                },
+                "should tell when a nested match is found": {
+                    "ref": "specs/inspector.feature.md:9",
+                    "status": "red"
+                }
+            },
+            "depth": 0,
+            "key": "Inspector",
+            "status": "red"
+        },
+        {
+            "name": "Full",
+            "shoulds": {
+                "should match top level specs": {
+                    "ref": "specs/inspector.feature.md:12",
+                    "status": "green"
+                },
+                "should match first level specs": {
+                    "ref": "specs/inspector.feature.md:13",
+                    "status": "red"
+                },
+                "should match second level specs": {
+                    "ref": "specs/inspector.feature.md:14",
+                    "status": "red"
+                },
+                "should match nested and non nested specs": {
+                    "ref": "specs/inspector.feature.md:15",
+                    "status": "red"
+                }
+            },
+            "depth": 1,
+            "key": "Inspector Full",
+            "status": "red"
+        },
+        {
+            "name": "Result collector",
+            "shoulds": {
+                "should fire a callback passing in an object made up of merged objects": {
+                    "ref": "specs/others.feature.md:3",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Result collector",
+            "status": "green"
+        },
+        {
+            "name": "Spec collector",
+            "shoulds": {
+                "resolves the glob and calls the feature transformer for each file": {
+                    "ref": "specs/others.feature.md:6",
+                    "status": "green"
+                },
+                "should fire a callback passing in an object made up of merged objects": {
+                    "ref": "specs/others.feature.md:7",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Spec collector",
+            "status": "green"
+        },
+        {
+            "name": "Spitter Outer",
+            "shoulds": {
+                "colorise output into an array of console messages": {
+                    "ref": "specs/others.feature.md:11",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Spitter Outer",
+            "status": "green"
+        },
+        {
+            "name": "Template Renderer",
+            "shoulds": {
+                "should be able to render a JS template": {
+                    "ref": "specs/others.feature.md:14",
+                    "status": "green"
+                },
+                "should be able to render a java template": {
+                    "ref": "specs/others.feature.md:15",
+                    "status": "green"
+                },
+                "should be able to render a php template": {
+                    "ref": "specs/others.feature.md:16",
+                    "status": "green"
+                }
+            },
+            "depth": 0,
+            "key": "Template Renderer",
+            "status": "green"
+        },
+        {
+            "name": "JUnit",
+            "shoulds": [],
+            "depth": 0,
+            "key": "JUnit",
+            "status": "green"
+        },
+        {
+            "name": "Converter",
+            "shoulds": {
+                "should be able to normalise the testsuite name": {
+                    "ref": "specs/junit.feature.md:4",
+                    "status": "green"
+                },
+                "should be able to normalise the testcase name": {
+                    "ref": "specs/junit.feature.md:5",
+                    "status": "green"
+                },
+                "should be able parse a javaservices JUnit file": {
+                    "ref": "specs/junit.feature.md:6",
+                    "status": "green"
+                },
+                "should be able parse a nexted JUnit file that has failures": {
+                    "ref": "specs/junit.feature.md:7",
+                    "status": "green"
+                }
+            },
+            "depth": 1,
+            "key": "JUnit Converter",
+            "status": "green"
+        },
+        {
+            "name": "XML writer",
+            "shoulds": {
+                "creates a passing testcase for a spec": {
+                    "ref": "specs/junit.feature.md:11",
+                    "status": "green"
+                },
+                "handles multiple passing specs": {
+                    "ref": "specs/junit.feature.md:12",
+                    "status": "green"
+                },
+                "adds a skipped node for pending specs": {
+                    "ref": "specs/junit.feature.md:13",
+                    "status": "green"
+                },
+                "adds a failure node for failing specs": {
+                    "ref": "specs/junit.feature.md:14",
+                    "status": "green"
+                },
+                "handles a spec that isnt nested in a describe": {
+                    "ref": "specs/junit.feature.md:15",
+                    "status": "green"
+                }
+            },
+            "depth": 1,
+            "key": "JUnit XML writer",
+            "status": "green"
+        },
+        {
+            "name": "Spec Counting",
+            "shoulds": {
+                "specifies the correct number of tests in a suite": {
+                    "ref": "specs/junit.feature.md:19",
+                    "status": "green"
+                },
+                "counts the number of specs including failing and pending": {
+                    "ref": "specs/junit.feature.md:20",
+                    "status": "green"
+                }
+            },
+            "depth": 2,
+            "key": "JUnit XML writer Spec Counting",
+            "status": "green"
+        },
+        {
+            "name": "Shopping Cart",
+            "shoulds": [],
+            "depth": 0,
+            "key": "Shopping Cart",
+            "status": "green"
+        },
+        {
+            "name": "Index Page",
+            "shoulds": {
+                "should have a list of all the products": {
+                    "ref": "specs/new.feature.md:5",
+                    "status": "yellow"
+                },
+                "should have a price filter": {
+                    "ref": "specs/new.feature.md:6",
+                    "status": "yellow"
+                }
+            },
+            "depth": 1,
+            "key": "Shopping Cart Index Page",
+            "status": "yellow"
+        },
+        {
+            "name": "Detail Page",
+            "shoulds": {
+                "should have an add to cart button": {
+                    "ref": "specs/new.feature.md:10",
+                    "status": "yellow"
+                },
+                "should be named add to cart": {
+                    "ref": "specs/new.feature.md:11",
+                    "status": "yellow"
+                },
+                "should have show image of the product": {
+                    "ref": "specs/new.feature.md:12",
+                    "status": "yellow"
+                }
+            },
+            "depth": 1,
+            "key": "Shopping Cart Detail Page",
+            "status": "yellow"
+        },
+        {
+            "name": "Add to Cart",
+            "shoulds": {
+                "should add the item to the cart": {
+                    "ref": "specs/new.feature.md:16",
+                    "status": "yellow"
+                },
+                "should redirect to the cart cage": {
+                    "ref": "specs/new.feature.md:17",
+                    "status": "yellow"
+                }
+            },
+            "depth": 2,
+            "key": "Shopping Cart Detail Page Add to Cart",
+            "status": "yellow"
+        },
+        {
+            "name": "Cart Page",
+            "shoulds": {
+                "should have a list of the items added": {
+                    "ref": "specs/new.feature.md:21",
+                    "status": "yellow"
+                }
+            },
+            "depth": 1,
+            "key": "Shopping Cart Cart Page",
+            "status": "yellow"
+        },
+        {
+            "name": "ShouldIT App",
+            "key": "ShouldIT App",
+            "status": "yellow"
+        }
+    ],
+    "links": [
+        {
+            "source": 0,
+            "target": 1
+        },
+        {
+            "source": 3,
+            "target": 4
+        },
+        {
+            "source": 3,
+            "target": 5
+        },
+        {
+            "source": 7,
+            "target": 8
+        },
+        {
+            "source": 13,
+            "target": 14
+        },
+        {
+            "source": 13,
+            "target": 15
+        },
+        {
+            "source": 15,
+            "target": 16
+        },
+        {
+            "source": 17,
+            "target": 18
+        },
+        {
+            "source": 17,
+            "target": 19
+        },
+        {
+            "source": 19,
+            "target": 20
+        },
+        {
+            "source": 17,
+            "target": 21
+        },
+        {
+            "source": 22,
+            "target": 3
+        },
+        {
+            "source": 3,
+            "target": 8
+        }
+    ]
+}

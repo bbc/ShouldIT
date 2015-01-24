@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.link {
+  stroke: #ccc;
+}
+
+.node text {
+  pointer-events: none;
+  font: 11px sans-serif;
+  stroke: none;
+  background-color: red;
+}
+
+.node {
+
+  stroke: #000;
+  stroke-width: 1px;
+}
+.node-parent {
+  stroke-width: 1.2px;
+}
+
+svg {
+  float: left
+}
+
+
+/*  ----- Page Styles ---- */
+
+.header {
+  background-color: #333333;
+  border-bottom: 6px solid #9CC3C2;
+}
+
+.feature-container {
+  width: 920px;
+  float: left;
+  padding: 20px;
+  display: none;
+}
+.close-feature{
+  text-align: right;
+}
+
+.panel {
+  float: left;
+  width: 300px;
+  margin-top: -6px;
+  background-color: #333;
+  color: white;
+  border-left: 6px solid #9CC3C2;
+  border-right: 6px solid #9CC3C2;
+  border-bottom: 6px solid #9CC3C2;
+  padding: 10px;
+}
+
+.panel h3 {
+  color: #9CC3C2;
+  margin: 0;
+}
+.panel h2 {
+  margin: 0;
+}
+.panel ul {
+  padding: 0;
+}
+.panel li {
+  display: block;
+  padding: 8px 0;
+  border-top: 1px dotted #9CC3C2;
+}
+
+
+</style>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<body>
+<div class="header">
+  <img src="/images/logo.png" />
+</div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<div class="feature-container">
+  <div class="close-feature"><a href="#">Close</a></div>
+  <div class="feature"></div>
+</div>
+<script>
+var converter = new Showdown.converter();
+var width = 960,
+    height = 500
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var force = d3.layout.force()
+    .gravity(.05)
+    .distance(100)
+    .charge(-100)
+    .size([width, height]);
+
+d3.json("graph.json", function(error, json) {
+  force
+      .nodes(json.nodes)
+      .links(json.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(json.links)
+    .enter().append("line")
+      .attr("class", "link");
+
+  var node = svg.selectAll(".node")
+      .data(json.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  // Color leaf nodes orange, and packages white or blue.
+  function color(d) {
+    return d.depth === 0 ? d.status : d.status; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
+
+  function size(d) {
+    return d.depth === 0 ? 15 : 12; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
+
+  function styleClass(d) {
+    return d.depth === 0 ? "node node-parent" : "node"; //: d.children ? "#c6dbef" : "#fd8d3c";
+  }
+
+  node.append("circle")
+      .attr("class", styleClass)
+      .attr("r", size)
+      .style("fill", color)
+      .on("click", click)
+      .call(force.drag);
+
+  node.append("text")
+      .attr("dx", 20)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name });
+
+  function click(d) {
+    if (d.shoulds) {
+      $(".should").off();
+      var panel = document.getElementsByClassName('panel')[0];
+      panel.innerHTML = '';
+      var breadcrumb = document.createElement('h3');
+      breadcrumb.innerText = d.key;
+      panel.appendChild(breadcrumb);
+      var title = document.createElement('h2');
+      title.innerText = d.name;
+      panel.appendChild(title);
+      var list = document.createElement('ul');
+      var should;
+      for (var key in d.shoulds) {
+        should = document.createElement('li');
+        should.setAttribute("class", "should");
+        should.setAttribute("data-feature", d.shoulds[key].ref);
+        should.setAttribute("style", "color:" + d.status);
+        should.innerText = key;
+
+        list.appendChild(should);
+      };
+      panel.appendChild(list);
+      $(".should").on('click', function (){
+        var url = '/feature/' + $(this).data('feature').split(':')[0];
+        $.getJSON(url, function(data) {
+          $( ".feature" ).html( converter.makeHtml(data.feature) );
+          $( ".feature-container" ).show();
+          $( "svg" ).hide();
+        });
+      });
+    }
+
+  }
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+});
+
+$(function() {
+  $(".close-feature").on('click', function (){
+    $( ".feature-container" ).hide();
+    $( "svg" ).show();
+  });
+});
+
+</script>
+<div class="panel"><h1>ShouldIT? Visualiser</h1><p>Click on any context to see its contents</p></div>
