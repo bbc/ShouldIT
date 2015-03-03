@@ -21,12 +21,12 @@
             "shoulds": {
                 "can parse a markdown file": {
                     "ref": "specs/transformation.feature.md:8",
-                    "status": "red"
+                    "status": "green"
                 }
             },
             "depth": 1,
             "key": "Transformation Parsing Markdown",
-            "status": "red"
+            "status": "green"
         },
         {
             "name": "Config Builder",
@@ -165,11 +165,11 @@
             "shoulds": {
                 "should tell when a match is found": {
                     "ref": "specs/inspector.feature.md:3",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should tell when a match is not found": {
                     "ref": "specs/inspector.feature.md:4",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should tell when a non suite-ed match is found": {
                     "ref": "specs/inspector.feature.md:5",
@@ -177,24 +177,24 @@
                 },
                 "should handle the spec not matching the output": {
                     "ref": "specs/inspector.feature.md:6",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should handle multiple ITS inside a describe": {
                     "ref": "specs/inspector.feature.md:7",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should tell when a match is found but has a failing test": {
                     "ref": "specs/inspector.feature.md:8",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should tell when a nested match is found": {
                     "ref": "specs/inspector.feature.md:9",
-                    "status": "red"
+                    "status": "green"
                 }
             },
             "depth": 0,
             "key": "Inspector",
-            "status": "red"
+            "status": "green"
         },
         {
             "name": "Full",
@@ -205,20 +205,20 @@
                 },
                 "should match first level specs": {
                     "ref": "specs/inspector.feature.md:13",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should match second level specs": {
                     "ref": "specs/inspector.feature.md:14",
-                    "status": "red"
+                    "status": "green"
                 },
                 "should match nested and non nested specs": {
                     "ref": "specs/inspector.feature.md:15",
-                    "status": "red"
+                    "status": "green"
                 }
             },
             "depth": 1,
             "key": "Inspector Full",
-            "status": "red"
+            "status": "green"
         },
         {
             "name": "Result collector",
