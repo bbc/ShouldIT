@@ -8937,7 +8937,7 @@ pre {
   border: none;
   padding: 5px;
   background-color: #f7f7f7;
-  overflow: scroll;
+  overflow: auto;
   margin: 20px;
 }
 
