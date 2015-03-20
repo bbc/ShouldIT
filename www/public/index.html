@@ -160,7 +160,7 @@ d3.json("graph.json", function(error, json) {
         should = document.createElement('li');
         should.setAttribute("class", "should");
         should.setAttribute("data-feature", d.shoulds[key].ref);
-        should.setAttribute("style", "color:" + d.status);
+        should.setAttribute("style", "color:" + d.shoulds[key].status);
         should.innerText = key;
 
         list.appendChild(should);
