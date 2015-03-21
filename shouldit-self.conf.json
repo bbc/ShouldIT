@@ -1,7 +1,0 @@
-{
-    "specs": "specs/*.feature.md",
-    "results": "mocha-output.json",
-    "watch": false,
-    "hint": false,
-    "map": "map.yml"
-}
