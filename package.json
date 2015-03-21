@@ -1,6 +1,6 @@
 {
   "name": "shouldit",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "A cool way to find out if your spec's in feature files and the like have met expectations.",
   "main": "index.js",
   "scripts": {
