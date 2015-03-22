@@ -88,8 +88,8 @@ svg {
 </div>
 <script>
 var converter = new Showdown.converter();
-var width = 960,
-    height = 500
+var width = ($(window).width() - 350),
+    height = ($(window).height() - 60);
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -124,7 +124,8 @@ d3.json("graph.json", function(error, json) {
   }
 
   function size(d) {
-    return d.depth === 0 ? 15 : 12; //: d.children ? "#c6dbef" : "#fd8d3c";
+    if(d.depth >= 4 ){ return 6; }
+    return (15 - (d.depth/1)*3); // hierarchy size degradation max possible 5 levels
   }
 
   function styleClass(d) {
@@ -167,13 +168,11 @@ d3.json("graph.json", function(error, json) {
       panel.append(list);
       $should.on('click', function (){
         var url = '/feature/' + $(this).data('feature').split(':')[0];
-          if($(".feature").data('current-feature') != url ) {
               $.getJSON(url, function(data) {
-                  $(".feature").html(converter.makeHtml(data.feature)).data('current-feature', url);
+                  $(".feature").html(converter.makeHtml(data.feature));
                   $(".feature-container").show();
                   $("svg").hide();
               });
-          }
       });
     }
 
@@ -194,6 +193,7 @@ $(function() {
     $( ".feature-container" ).hide();
     $( "svg" ).show();
   });
+  $(".feature-container").css("width", (width-40)+'px').css('height', (height-40)+'px');
 });
 
 </script>
