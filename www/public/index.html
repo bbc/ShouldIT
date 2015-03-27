@@ -145,34 +145,35 @@ d3.json("graph.json", function(error, json) {
 
   function click(d) {
     if (d.shoulds) {
-      $(".should").off();
-      var panel = document.getElementsByClassName('panel')[0];
-      panel.innerHTML = '';
-      var breadcrumb = document.createElement('h3');
-      breadcrumb.innerText = d.key;
-      panel.appendChild(breadcrumb);
-      var title = document.createElement('h2');
-      title.innerText = d.name;
-      panel.appendChild(title);
-      var list = document.createElement('ul');
+        var $should = $(".should");
+        $should.off();
+      var panel = $('.panel').first().html('');
+      var breadcrumb = $('<h3></h3>').text(d.key);
+      panel.append(breadcrumb);
+      var title = $('<h2></h2>').text(d.name);
+      panel.append(title);
+      var list = $('<ul></ul>');
       var should;
       for (var key in d.shoulds) {
-        should = document.createElement('li');
-        should.setAttribute("class", "should");
-        should.setAttribute("data-feature", d.shoulds[key].ref);
-        should.setAttribute("style", "color:" + d.shoulds[key].status);
-        should.innerText = key;
-
-        list.appendChild(should);
-      };
-      panel.appendChild(list);
-      $(".should").on('click', function (){
+          if(d.shoulds.hasOwnProperty(key) ) {
+              should = $('<li></li>');
+              should.attr("class", "should")
+                      .attr("data-feature", d.shoulds[key].ref)
+                      .attr("style", "color:"+d.shoulds[key].status)
+                      .text(key);
+              list.append(should);
+          }
+      }
+      panel.append(list);
+      $should.on('click', function (){
         var url = '/feature/' + $(this).data('feature').split(':')[0];
-        $.getJSON(url, function(data) {
-          $( ".feature" ).html( converter.makeHtml(data.feature) );
-          $( ".feature-container" ).show();
-          $( "svg" ).hide();
-        });
+          if($(".feature").data('current-feature') != url ) {
+              $.getJSON(url, function(data) {
+                  $(".feature").html(converter.makeHtml(data.feature)).data('current-feature', url);
+                  $(".feature-container").show();
+                  $("svg").hide();
+              });
+          }
       });
     }
 
