@@ -11,4 +11,4 @@ mocha-output.json
 _site/
 npm-debug.log
 .sass-cache
-www/public/graph.json
+graph.json
