@@ -17,6 +17,7 @@ d3.json("graph.json", function(error, json) {
       .nodes(json.nodes)
       .links(json.links)
       .start();
+
   jsonLoaded(json);
 });
 
@@ -82,14 +83,14 @@ function clickHandler(d) {
         if(d.shoulds.hasOwnProperty(key) ) {
             should = $('<li></li>');
             should.attr("class", "should")
-                    .attr("data-feature", d.shoulds[key].ref)
-                    .attr("style", "color:"+d.shoulds[key].status)
-                    .text(key);
+              .attr("data-feature", d.shoulds[key].ref)
+              .attr("style", "color:"+d.shoulds[key].status)
+              .text(key);
             list.append(should);
         }
     }
     panel.append(list);
-    $should.on('click', function (){
+    $(".should").on('click', function (){
       var url = '/feature/' + $(this).data('feature').split(':')[0];
             $.getJSON(url, function(data) {
                 $(".feature").html(converter.makeHtml(data.feature));
