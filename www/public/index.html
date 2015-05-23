@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<link rel="stylesheet" href="/stylesheets/style.css">
-<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/base-min.css">
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
 <body>
-<div class="header">
-  <img src="/images/logo.png" />
-</div>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<div class="feature-container">
-  <div class="close-feature"><a href="#">Close</a></div>
-  <div class="feature"></div>
-</div>
-<script src="/javascript/bundle.js"></script>
-<div class="panel"><h1>ShouldIT? Visualiser</h1><p>Click on any context to see its contents</p></div>
+    <div class="header">
+      <img src="/images/logo.png" />
+    </div>
+
+    <div class="feature-container">
+      <div class="close-feature"><a href="#">Close</a></div>
+      <div class="feature"></div>
+    </div>
+    <script src="/javascript/config.js"></script>
+    <script src="/javascript/bundle.js"></script>
+    <div class="panel"><h1>ShouldIT? Visualiser</h1><p>Click on any context to see its contents</p></div>
 </body>
+</html>
