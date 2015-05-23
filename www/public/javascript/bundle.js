@@ -10,21 +10,44 @@ var force = d3.layout.force()
     .gravity(.05)
     .distance(100)
     .charge(-100)
-    .size([width, height]);
+    .size([width, height])
+    .nodes([])
+    .links([])
+    .start();
 
-d3.json("graph.json", function(error, json) {
-  force
-      .nodes(json.nodes)
-      .links(json.links)
+
+  var socket = io.connect('http://localhost:3000');
+  socket.on('update', function (data) {
+    console.log(data);
+    if(!data) {
+      return;
+    }
+    d3.select("svg").selectAll("*").remove();
+    force
+      .nodes(data.nodes)
+      .links(data.links)
       .start();
 
-  jsonLoaded(json);
-});
+    jsonLoaded(data);
+  });
+
+function color(d) {
+  return d.status;
+}
+
+function size(d) {
+  if(d.depth >= 5 ){ return 5; }
+  return (15 - (d.depth/1)*2);
+}
+
+function styleClass(d) {
+  return d.depth === 0 ? "node node-parent" : "node";
+}
 
 function jsonLoaded(json) {
    var link = svg.selectAll(".link")
       .data(json.links)
-    .enter().append("line")
+      .enter().append("line")
       .attr("class", "link");
 
   var node = svg.selectAll(".node")
@@ -32,19 +55,6 @@ function jsonLoaded(json) {
     .enter().append("g")
       .attr("class", "node")
       .call(force.drag);
-
-  function color(d) {
-    return d.status;
-  }
-
-  function size(d) {
-    if(d.depth >= 5 ){ return 5; }
-    return (15 - (d.depth/1)*2);
-  }
-
-  function styleClass(d) {
-    return d.depth === 0 ? "node node-parent" : "node";
-  }
 
   node.append("circle")
       .attr("class", styleClass)
