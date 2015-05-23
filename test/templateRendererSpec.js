@@ -57,4 +57,19 @@ describe("Template Renderer", function() {
 
         assert.equal(result, expected);
     });
+
+
+    it("should be able to render a junit template", function() {
+        var result = templateRenderer("junit", "The Main Feature", "should do something nice"),
+            expected = '@ShouldItContext("The Main Feature")\n' +
+                'public class TheMainFeatureTest {\n\n' +
+                '    @Test\n' +
+                '    @It("should do something nice")\n' +
+                '    public void shouldDoSomethingNice() {\n' +
+                '        ...\n' +
+                '    }\n' +
+                '}';
+
+        assert.equal(result, expected);
+    });
 });
