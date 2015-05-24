@@ -103,7 +103,7 @@ We will very soon write some great features for our blog in here!
 Now we have all these babies we can start the web visualiser by the following command (make sure ShouldIT? is installed locally for visualisation):
 
 ```
-./node_modules/shouldit/bin/shouldit --serve
+shouldit --serve
 ```
 
 You should now be able to see a wonderful of your project like this.
@@ -138,3 +138,11 @@ Where `Blog` is dependant on only the `pagination` feature.
 By then adding this map your visualisation will show even further the relationship between the features.
 
 ![image](../img/visualisation/mapped.png)
+
+## Updates to ShouldIT results
+
+If you run ShouldIT? in watch mode then whenever you have your tests run or update your feature files then your project map will update automatically.
+
+```
+shouldit --serve --watch
+```

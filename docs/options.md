@@ -60,3 +60,15 @@ Or JUnit XML files.
 > Values: `javascript`, `rspec`, `php`, `java`, `phpspec`
 
 At the moment when setting the value of hint to one of the above available hint languages ShouldIT? will prompt you the next test you should write. This will make writing your test somewhat easier.
+
+### serve
+
+> default: false
+
+Starts ShoultIT? with visualisation mode so you can see a project map at `http://localhost:3000` or wherever your default port is set to.
+
+### port
+
+> default: 3000
+
+When using visualisation mode this sets the port that you want the visualisation web server available at.
