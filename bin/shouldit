@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 "use strict";
 
-require('../lib/app').run(process.argv);
+require('../lib/app').init(process.argv);

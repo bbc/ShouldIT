@@ -56,4 +56,16 @@ describe ("Config Builder", function () {
         fs.unlinkSync('myfile.json');
     });
 
+    it("should be able take instruction on outputting summary information", function() {
+        args[4] = '--outputSummary=0';
+        assert.equal(buildConfig(args).outputSummary, false);
+        args[4] = '--outputSummary=1';
+        assert.equal(buildConfig(args).outputSummary, true);
+    });
+    
+    it("should be able to add a comma deliminated outputDetails", function() {
+        args[4] = "--outputDetails=passed,failed";
+        assert.deepEqual(buildConfig(args).outputDetails, ['passed','failed']);
+    });
+
 });
