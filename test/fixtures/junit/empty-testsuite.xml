@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="company.dept.product.api.CoverageApiTest" time="0.005"
+               tests="8" errors="0" skipped="0" failures="0">
+        <testcase name="getReturnsWith400StatusIfIdParameterIsEmpty"
+                  classname="company.dept.product.api.CoverageApiTest"
+                  time="0"/>
+    </testsuite>
+    <testsuite name="didnt.write.tests.here.yet"></testsuite>
+</testsuites>

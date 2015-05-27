@@ -5,6 +5,7 @@
 + IT should be able to normalise the testcase name
 + IT should be able parse a javaservices JUnit file
 + IT should be able parse a nexted JUnit file that has failures
++ IT should be able to ignore testsuites that contain no testcases
 
 ## XML writer
 
