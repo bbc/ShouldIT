@@ -55,4 +55,16 @@ describe ("JUnit Converter", function () {
         });
     });
 
+    it("should be able to ignore testsuites that contain no testcases", function(){
+        var file = "test/fixtures/junit/empty-testsuite.xml";
+        converter = new Converter(file);
+        converter.exec(function (results) {
+            assert.equal(JSON.stringify(results), JSON.stringify({ "Coverage Api":
+                {
+                    "get returns with 400 status if id parameter is empty": "PASSED"
+                },
+                "yet": {}
+            }));
+        });
+    });
 });
