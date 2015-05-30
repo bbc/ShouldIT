@@ -137,23 +137,49 @@ describe("Markdown parser", function() {
             count++;
             switch (count) {
                 case 1:
-                    assert.equal(spec.currentTag, "ignoremark");
+                    assert.deepEqual(spec.currentTag, ["ignoremark"]);
                     assert.equal(spec.description, false);
                     break;
                 case 2:
-                    assert.equal(spec.currentTag, "mymark");
+                    assert.deepEqual(spec.currentTag, ["mymark"]);
                     assert.equal(spec.description, "also has a spec on the sub-sub feature");
                     break;
                 case 3:
-                    assert.equal(spec.currentTag, "mymark");
+                    assert.deepEqual(spec.currentTag, ["mymark"]);
                     assert.equal(spec.description, "also has a spec on another sub-sub feature");
                     break;
                 case 4:
-                    assert.equal(spec.currentTag, false);
-                    assert.equal(spec.description, false);
+                    assert.equal(spec.currentTag, false, 'current tag should be false');
+                    assert.equal(spec.description, false, 'description shoulkd be false');
                     done();
             }
         });
+    });
+
+    it("matches multiple markers", function() {
+        var inputFile = "test/fixtures/markdown/multipleMarkered.md",
+            count = 0;
+
+        markdownParser(inputFile, ['mymark2'], function(spec) {
+            if (count < 2) {
+                assert.notEqual(spec.description, false);
+            }
+            if (count >= 2) {
+                assert.equal(spec.description, false);
+            }
+            count++;
+        });
+
+    });
+
+    it("does not match fuzzy markers markers", function() {
+        var inputFile = "test/fixtures/markdown/multipleMarkered.md",
+            count = 0;
+
+        markdownParser(inputFile, ['mark'], function(spec) {
+            assert.equal(spec.description, false);
+        });
+
     });
 
 });
