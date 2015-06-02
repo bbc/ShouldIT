@@ -1,3 +1,4 @@
+> @config
 # Config Builder
 
 + IT should be able to take a set input file
