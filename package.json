@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "colors": "~0.6.2",
+    "commander": "^2.8.1",
     "express": "^4.10.2",
     "gaze": "~0.5.1",
     "glob": "~3.2.9",

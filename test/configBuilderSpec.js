@@ -5,6 +5,8 @@ var buildConfig = require("../lib/configBuilder"),
 
 describe ("Config Builder", function () {
 
+    var args;
+
     beforeEach(function(){
         args = ['node', '/mocha', '--specs=exampleSpec.feature', '--results=results.json,results.xml'];
     });
@@ -19,16 +21,6 @@ describe ("Config Builder", function () {
         var comparisonFile = "tests/fixtures/spec/exampleSpec.feature";
         args[3] = '--results=' + comparisonFile;
         assert.deepEqual(buildConfig(args).results, [comparisonFile]);
-    });
-
-    it("should raise an exeption if the input file isnt passed", function() {
-        args[2] = undefined;
-        assert.equal(buildConfig(args).message, "A specs glob such as path/*.feature must be specified.");
-    });
-
-    it("should raise an exeption if the comparison file isnt passed", function() {
-        args[3] = undefined;
-        assert.equal(buildConfig(args).message, "A results file must be specified.");
     });
 
     it("should be able to add a comma deliminated tag", function() {
@@ -57,14 +49,13 @@ describe ("Config Builder", function () {
     });
 
     it("should be able take instruction on outputting summary information", function() {
-        args[4] = '--outputSummary=0';
-        assert.equal(buildConfig(args).outputSummary, false);
-        args[4] = '--outputSummary=1';
+        assert.equal(buildConfig(args).outputSummary, undefined);
+        args[4] = '--output-summary=1';
         assert.equal(buildConfig(args).outputSummary, true);
     });
     
     it("should be able to add a comma deliminated outputDetails", function() {
-        args[4] = "--outputDetails=passed,failed";
+        args[4] = "--output-details=passed,failed";
         assert.deepEqual(buildConfig(args).outputDetails, ['passed','failed']);
     });
 
