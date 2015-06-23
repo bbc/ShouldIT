@@ -47,7 +47,7 @@ describe("Spec collector", function() {
     });
 
     it("should fire a callback passing in an object made up of merged objects", function(done) {
-        specCollector('test/fixtures/markdown/*.md', [], function(data) {
+        specCollector('test/fixtures/markdown/*.md', []).then(function(data) {
             assert.equal(JSON.stringify(data), JSON.stringify({
                 'some data1': 'some value',
                 'some data2': 'some value',
@@ -60,7 +60,11 @@ describe("Spec collector", function() {
 });
 
 describe("Spec collector", function() {
-    var calls = [], transformerSpy, globStub, specCollector, i;
+    var calls = [], 
+        transformerSpy, 
+        globStub, 
+        specCollector, 
+        i;
 
     beforeEach(function() {
         i = 0;
@@ -121,7 +125,8 @@ describe("Spec collector", function() {
     });
 
     it("should merge structures", function(done) {
-        specCollector('test/fixtures/markdown/*.md', [], function(data) {
+        specCollector('test/fixtures/markdown/*.md', []).then(function(data) {
+
             assert.equal(JSON.stringify(data), JSON.stringify({
                 "top middle bottom": {
                     "_parents": ["top", "middle", "bottom"], "specs": {
