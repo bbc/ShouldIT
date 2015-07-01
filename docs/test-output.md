@@ -72,4 +72,76 @@ mocha -R mocha-spec-json-reporter
 
 ## Java
 
+The best way to use 'ShouldIT?' with Java is to install the [ShouldIT? Java tools](https://github.com/mackstar/ShouldIT-JavaTools)
+
+It plays along with JUnit to allow you to tag your tests with `@ShouldItContext` and `@It` annotations.
+
+First add the following repo to your `pom.xml` file.
+
+```<repositories>
+    <repository>
+        <id>shouldit-mvn-repo</id>
+        <url>https://raw.github.com/mackstar/ShouldIT-JavaTools/mvn-repo/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
+Then the tools are available through dependency:
+
+```
+<dependency>
+    <groupId>mackstar</groupId>
+    <artifactId>shouldit</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+What this gives you are rules and annotations that when your unit tests are run then a result file that ShouldIT? understands is generated. (By default this will be `shouldit-report.json` in the directory your tests are run from.)
+
+So if there was a feature file with the following contents:
+
+```
+# A new Feature
+## My Scenario
+
++ IT should have a passing test
+```
+
+This should correspond to a a test that looks something like the following:
+```
+import mackstar.shouldit.annotations.*;
+import mackstar.shouldit.rules.ShouldIt;
+import org.junit.Rule;
+import org.junit.Test;
+
+@ShouldItContext("A new Feature My Scenario")
+public class YeahTest {
+
+
+   @Rule
+   public ShouldIt shouldItRule = new ShouldIt();
+
+    @Test
+    @It("should have a passing test")
+    public void testName() throws Exception {
+        assert(true);
+    }
+}
+```
+
+Notice the line:
+```
+public ShouldIt shouldItRule = new ShouldIt();
+```
+
+This is what allows us to generate the output file that should be added to the [options file](installation.html) when you run `ShouldIT`. Without it no file will be generated.
+
+If you would like to override the output files location you can do by using the rule's `setOutputFile` method.
+
 ## Others
+
+Very keen to get ShouldIT? working with a number of other technologies, particulary `go`, `Scala`, `Clojure`, `Groovy` and `Elixir`. Please get in touch if you are interested.
