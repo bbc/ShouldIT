@@ -112,6 +112,7 @@ So if there was a feature file with the following contents:
 ```
 
 This should correspond to a a test that looks something like the following:
+
 ```
 import mackstar.shouldit.annotations.*;
 import mackstar.shouldit.rules.ShouldIt;
