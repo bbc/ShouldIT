@@ -78,7 +78,8 @@ It plays along with JUnit to allow you to tag your tests with `@ShouldItContext`
 
 First add the following repo to your `pom.xml` file.
 
-```<repositories>
+```
+<repositories>
     <repository>
         <id>shouldit-mvn-repo</id>
         <url>https://raw.github.com/mackstar/ShouldIT-JavaTools/mvn-repo/</url>
