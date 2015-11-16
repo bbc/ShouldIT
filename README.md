@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/bbc-sport/ShouldIT.png?branch=master)](http://travis-ci.org/bbc-sport/ShouldIT)
+[![Build Status](https://secure.travis-ci.org/bbc/ShouldIT.png?branch=master)](http://travis-ci.org/bbc/ShouldIT)
 
 # ShouldIT?
 
@@ -8,7 +8,7 @@ This is a BDD tool for checking and spec-ing tests against beautiful looking fea
 
 The quickest way to get going and have a flavour of how this works is through the examples.
 
-[ShouldIT? Example Repository](https://github.com/bbc-sport/ShouldIT-Examples)
+[ShouldIT? Example Repository](https://github.com/bbc/ShouldIT-Examples)
 
 ### How it works...
 
